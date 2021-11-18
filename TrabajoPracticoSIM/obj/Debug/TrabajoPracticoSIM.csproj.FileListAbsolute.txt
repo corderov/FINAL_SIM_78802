@@ -8,3 +8,13 @@ C:\Users\Administrador\source\repos\TrabajoPracticoSIM\TrabajoPracticoSIM\obj\De
 C:\Users\Administrador\source\repos\TrabajoPracticoSIM\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.exe
 C:\Users\Administrador\source\repos\TrabajoPracticoSIM\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.pdb
 C:\Users\Administrador\source\repos\TrabajoPracticoSIM\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.Form1.resources
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\bin\Debug\TrabajoPracticoSIM.exe.config
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\bin\Debug\TrabajoPracticoSIM.exe
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\bin\Debug\TrabajoPracticoSIM.pdb
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.csproj.AssemblyReference.cache
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.Form1.resources
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.Properties.Resources.resources
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.csproj.GenerateResource.cache
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.exe
+C:\Users\Administrador\Documents\GitHub\FINAL_SIM_78802\TrabajoPracticoSIM\obj\Debug\TrabajoPracticoSIM.pdb

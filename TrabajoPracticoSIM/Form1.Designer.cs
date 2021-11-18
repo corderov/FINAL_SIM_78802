@@ -31,28 +31,28 @@ namespace TrabajoPracticoSIM
         {
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lotePedido = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.checkReposicion = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.puntoReposicion = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkReposicion = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lotePedido = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.costoPedido = new System.Windows.Forms.MaskedTextBox();
-            this.costoMantenimiento = new System.Windows.Forms.MaskedTextBox();
             this.costoFaltante = new System.Windows.Forms.MaskedTextBox();
+            this.costoMantenimiento = new System.Windows.Forms.MaskedTextBox();
+            this.costoPedido = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.Simulacion = new System.Windows.Forms.GroupBox();
+            this.diaHasta = new System.Windows.Forms.MaskedTextBox();
+            this.diaDesde = new System.Windows.Forms.MaskedTextBox();
+            this.cantDias = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblDesdeDias = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cantDias = new System.Windows.Forms.MaskedTextBox();
-            this.diaDesde = new System.Windows.Forms.MaskedTextBox();
-            this.diaHasta = new System.Windows.Forms.MaskedTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,41 +100,15 @@ namespace TrabajoPracticoSIM
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Condiciones";
             // 
-            // label1
+            // puntoReposicion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lote de Pedido";
-            // 
-            // lotePedido
-            // 
-            this.lotePedido.Location = new System.Drawing.Point(124, 28);
-            this.lotePedido.Mask = "99999";
-            this.lotePedido.Name = "lotePedido";
-            this.lotePedido.Size = new System.Drawing.Size(100, 20);
-            this.lotePedido.TabIndex = 1;
-            this.lotePedido.ValidatingType = typeof(int);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Con Punto de Reposicion";
-            // 
-            // checkReposicion
-            // 
-            this.checkReposicion.AutoSize = true;
-            this.checkReposicion.Location = new System.Drawing.Point(158, 65);
-            this.checkReposicion.Name = "checkReposicion";
-            this.checkReposicion.Size = new System.Drawing.Size(15, 14);
-            this.checkReposicion.TabIndex = 3;
-            this.checkReposicion.UseVisualStyleBackColor = true;
+            this.puntoReposicion.Enabled = false;
+            this.puntoReposicion.Location = new System.Drawing.Point(145, 97);
+            this.puntoReposicion.Mask = "99999";
+            this.puntoReposicion.Name = "puntoReposicion";
+            this.puntoReposicion.Size = new System.Drawing.Size(100, 20);
+            this.puntoReposicion.TabIndex = 5;
+            this.puntoReposicion.ValidatingType = typeof(int);
             // 
             // label3
             // 
@@ -145,14 +119,42 @@ namespace TrabajoPracticoSIM
             this.label3.TabIndex = 4;
             this.label3.Text = "Punto de Reposicion";
             // 
-            // puntoReposicion
+            // checkReposicion
             // 
-            this.puntoReposicion.Location = new System.Drawing.Point(145, 97);
-            this.puntoReposicion.Mask = "99999";
-            this.puntoReposicion.Name = "puntoReposicion";
-            this.puntoReposicion.Size = new System.Drawing.Size(100, 20);
-            this.puntoReposicion.TabIndex = 5;
-            this.puntoReposicion.ValidatingType = typeof(int);
+            this.checkReposicion.AutoSize = true;
+            this.checkReposicion.Location = new System.Drawing.Point(158, 65);
+            this.checkReposicion.Name = "checkReposicion";
+            this.checkReposicion.Size = new System.Drawing.Size(15, 14);
+            this.checkReposicion.TabIndex = 3;
+            this.checkReposicion.UseVisualStyleBackColor = true;
+            this.checkReposicion.CheckedChanged += new System.EventHandler(this.onCheck);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Con Punto de Reposicion";
+            // 
+            // lotePedido
+            // 
+            this.lotePedido.Location = new System.Drawing.Point(124, 28);
+            this.lotePedido.Mask = "99999";
+            this.lotePedido.Name = "lotePedido";
+            this.lotePedido.Size = new System.Drawing.Size(100, 20);
+            this.lotePedido.TabIndex = 1;
+            this.lotePedido.ValidatingType = typeof(int);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lote de Pedido";
             // 
             // groupBox2
             // 
@@ -169,41 +171,14 @@ namespace TrabajoPracticoSIM
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2) Costos";
             // 
-            // label4
+            // costoFaltante
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Costo de pedido (Ko)";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Costo de mantenimiento (Km)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Costo de faltante (Ks)";
-            // 
-            // costoPedido
-            // 
-            this.costoPedido.Location = new System.Drawing.Point(151, 28);
-            this.costoPedido.Mask = "99999";
-            this.costoPedido.Name = "costoPedido";
-            this.costoPedido.Size = new System.Drawing.Size(100, 20);
-            this.costoPedido.TabIndex = 4;
-            this.costoPedido.ValidatingType = typeof(int);
+            this.costoFaltante.Location = new System.Drawing.Point(151, 93);
+            this.costoFaltante.Mask = "99999";
+            this.costoFaltante.Name = "costoFaltante";
+            this.costoFaltante.Size = new System.Drawing.Size(100, 20);
+            this.costoFaltante.TabIndex = 6;
+            this.costoFaltante.ValidatingType = typeof(int);
             // 
             // costoMantenimiento
             // 
@@ -214,14 +189,41 @@ namespace TrabajoPracticoSIM
             this.costoMantenimiento.TabIndex = 5;
             this.costoMantenimiento.ValidatingType = typeof(int);
             // 
-            // costoFaltante
+            // costoPedido
             // 
-            this.costoFaltante.Location = new System.Drawing.Point(151, 93);
-            this.costoFaltante.Mask = "99999";
-            this.costoFaltante.Name = "costoFaltante";
-            this.costoFaltante.Size = new System.Drawing.Size(100, 20);
-            this.costoFaltante.TabIndex = 6;
-            this.costoFaltante.ValidatingType = typeof(int);
+            this.costoPedido.Location = new System.Drawing.Point(151, 28);
+            this.costoPedido.Mask = "99999";
+            this.costoPedido.Name = "costoPedido";
+            this.costoPedido.Size = new System.Drawing.Size(100, 20);
+            this.costoPedido.TabIndex = 4;
+            this.costoPedido.ValidatingType = typeof(int);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(28, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Costo de faltante (Ks)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Costo de mantenimiento (Km)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Costo de pedido (Ko)";
             // 
             // Simulacion
             // 
@@ -239,6 +241,43 @@ namespace TrabajoPracticoSIM
             this.Simulacion.TabIndex = 20;
             this.Simulacion.TabStop = false;
             this.Simulacion.Text = "3) Simulacion";
+            // 
+            // diaHasta
+            // 
+            this.diaHasta.Location = new System.Drawing.Point(115, 90);
+            this.diaHasta.Mask = "99999";
+            this.diaHasta.Name = "diaHasta";
+            this.diaHasta.Size = new System.Drawing.Size(100, 20);
+            this.diaHasta.TabIndex = 25;
+            this.diaHasta.ValidatingType = typeof(int);
+            // 
+            // diaDesde
+            // 
+            this.diaDesde.Location = new System.Drawing.Point(115, 54);
+            this.diaDesde.Mask = "99999";
+            this.diaDesde.Name = "diaDesde";
+            this.diaDesde.Size = new System.Drawing.Size(100, 20);
+            this.diaDesde.TabIndex = 24;
+            this.diaDesde.ValidatingType = typeof(int);
+            // 
+            // cantDias
+            // 
+            this.cantDias.Location = new System.Drawing.Point(149, 25);
+            this.cantDias.Mask = "99999";
+            this.cantDias.Name = "cantDias";
+            this.cantDias.Size = new System.Drawing.Size(100, 20);
+            this.cantDias.TabIndex = 23;
+            this.cantDias.ValidatingType = typeof(int);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 93);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Ingrese dia hasta:";
             // 
             // lblTimer
             // 
@@ -278,43 +317,6 @@ namespace TrabajoPracticoSIM
             this.lblDesdeDias.Size = new System.Drawing.Size(94, 13);
             this.lblDesdeDias.TabIndex = 18;
             this.lblDesdeDias.Text = "Ingrese dia desde:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 93);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Ingrese dia hasta:";
-            // 
-            // cantDias
-            // 
-            this.cantDias.Location = new System.Drawing.Point(149, 25);
-            this.cantDias.Mask = "99999";
-            this.cantDias.Name = "cantDias";
-            this.cantDias.Size = new System.Drawing.Size(100, 20);
-            this.cantDias.TabIndex = 23;
-            this.cantDias.ValidatingType = typeof(int);
-            // 
-            // diaDesde
-            // 
-            this.diaDesde.Location = new System.Drawing.Point(115, 54);
-            this.diaDesde.Mask = "99999";
-            this.diaDesde.Name = "diaDesde";
-            this.diaDesde.Size = new System.Drawing.Size(100, 20);
-            this.diaDesde.TabIndex = 24;
-            this.diaDesde.ValidatingType = typeof(int);
-            // 
-            // diaHasta
-            // 
-            this.diaHasta.Location = new System.Drawing.Point(115, 90);
-            this.diaHasta.Mask = "99999";
-            this.diaHasta.Name = "diaHasta";
-            this.diaHasta.Size = new System.Drawing.Size(100, 20);
-            this.diaHasta.TabIndex = 25;
-            this.diaHasta.ValidatingType = typeof(int);
             // 
             // dataGridView1
             // 

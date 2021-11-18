@@ -17,5 +17,20 @@ namespace TrabajoPracticoSIM
             InitializeComponent();
             
         }
+
+        private void onCheck(object sender, EventArgs e)
+        {
+            if (checkReposicion.Checked){
+                puntoReposicion.Enabled = true;
+            }
+            else
+            {
+                puntoReposicion.Enabled = false;
+                puntoReposicion.Clear();
+            }
+            
+            
+
+        }
     }
 }
