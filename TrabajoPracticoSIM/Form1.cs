@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoPracticoSIM.Clases;
 
 namespace TrabajoPracticoSIM
 {
@@ -20,7 +21,7 @@ namespace TrabajoPracticoSIM
 
         private void onCheck(object sender, EventArgs e)
         {
-            puntoReposicion.Enabled = checkReposicion.Checked;
+            txtPuntoReposicion.Enabled = checkReposicion.Checked;
 
         }
 
@@ -134,5 +135,154 @@ namespace TrabajoPracticoSIM
                 MessageBox.Show(ex.Message, "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+
+        private void OnClickGenerar(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(txtCantDias.Text))
+                {
+                    throw new ArgumentException("Debes ingresar la cantidad de días a generar");
+                }
+                if (String.IsNullOrEmpty(txtDiaDesde.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el día desde a mostrar en la tabla");
+                }
+
+                if (String.IsNullOrEmpty(txtDiaHasta.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el día hasta a mostrar en la tabla");
+                }
+
+                if (String.IsNullOrEmpty(txtLotePedido.Text))
+                {
+                    throw new ArgumentException("Debes ingresar la cantidad de lote de pedido");
+                }
+                if (String.IsNullOrEmpty(txtPuntoReposicion.Text) && checkReposicion.Checked)
+                {
+                    throw new ArgumentException("Debe ingresar el punto de reposicion");
+                }
+                if (String.IsNullOrEmpty(txtInventarioInicial.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el inventario inicial");
+                }
+                if (String.IsNullOrEmpty(txtCostoPedido.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el costo de pedido (Ko)");
+                }
+                if (String.IsNullOrEmpty(txtCostoMantenimiento.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el costo de almacenamiento (Km)");
+                }
+                if (String.IsNullOrEmpty(txtCostoFaltante.Text))
+                {
+                    throw new ArgumentException("Debes ingresar el costo de faltante (Ks)");
+                }
+
+      
+
+                //Stopwatch watch = new Stopwatch();
+                //watch.Start();
+                //gridRosas.Rows.Clear();
+                Random random = new Random();
+                int.TryParse(txtCantDias.Text, out int cantidadDiasaGenerar);
+                int.TryParse(txtDiaDesde.Text, out int diaDesde);
+                int.TryParse(txtDiaHasta.Text, out int diaHasta);
+                int.TryParse(txtLotePedido.Text, out int lotePedido);
+                int.TryParse(txtPuntoReposicion.Text, out int puntoReposicion);
+                int.TryParse(txtInventarioInicial.Text, out int inventarioInicial);
+                double.TryParse(txtCostoPedido.Text, out double costoPedido);
+                double.TryParse(txtCostoMantenimiento.Text, out double costoAlmacenamiento);
+                double.TryParse(txtCostoFaltante.Text, out double costoFaltante);
+
+
+                Fila anterior = null;
+                Fila actual = null;
+
+                for (int dia = 1; dia <= cantidadDiasaGenerar; dia++)
+                {
+
+                    actual = new Fila();
+                    
+                    if (dia == 1)
+                    {
+                        actual.costoAcum = actual.costoTotal;
+                    }
+                    else
+                    {
+                        actual.costoAcum += anterior.costoAcum + actual.costoTotal;
+                    }
+                    anterior = actual;
+
+                    if ((dia >= diaDesde && dia < diaDesde + 100) || dia == cantidadDiasaGenerar)
+                    {
+                        DataGridViewRow fila = new DataGridViewRow();
+                        DataGridViewTextBoxCell colDia = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colRNDClima = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colClima = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colRNDDemanda = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colDemanda = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colCantVenta = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colCantSobrante = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colCantFaltante = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colIngresoDiario = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colIngresoSobrante = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colGastoCompra = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colGastoFaltante = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colGananciaDiariaNeta = new DataGridViewTextBoxCell();
+                        DataGridViewTextBoxCell colGananciaAcum = new DataGridViewTextBoxCell();
+
+                        colDia.Value = dia;
+                        colRNDClima.Value = actual.RNDClima;
+                        colClima.Value = actual.GetClima();
+                        colRNDDemanda.Value = actual.RNDDemanda;
+                        colDemanda.Value = actual.demanda;
+                        colCantVenta.Value = actual.cantVenta;
+                        colCantSobrante.Value = actual.cantSobrante;
+                        colCantFaltante.Value = actual.cantFaltante;
+                        colIngresoDiario.Value = actual.ingresoDiario.ToString("F2") + " $";
+                        colIngresoSobrante.Value = actual.ingresoSobrante.ToString("F2") + " $";
+                        colGastoCompra.Value = actual.costoCompra.ToString("F2") + " $";
+                        colGastoFaltante.Value = actual.costoFaltante.ToString("F2") + " $";
+                        colGananciaDiariaNeta.Value = actual.gananciaDiariaNeta.ToString("F2") + " $";
+                        colGananciaAcum.Value = actual.acumGanancia.ToString("F2") + " $";
+
+                        fila.Cells.Add(colDia);
+                        fila.Cells.Add(colRNDClima);
+                        fila.Cells.Add(colClima);
+                        fila.Cells.Add(colRNDDemanda);
+                        fila.Cells.Add(colDemanda);
+                        fila.Cells.Add(colCantVenta);
+                        fila.Cells.Add(colCantSobrante);
+                        fila.Cells.Add(colCantFaltante);
+                        fila.Cells.Add(colIngresoDiario);
+                        fila.Cells.Add(colIngresoSobrante);
+                        fila.Cells.Add(colGastoCompra);
+                        fila.Cells.Add(colGastoFaltante);
+                        fila.Cells.Add(colGananciaDiariaNeta);
+                        fila.Cells.Add(colGananciaAcum);
+
+                        gridRosas.Rows.Add(fila);
+                    }
+
+                    if (chkDemandaDiaAnterior.Checked)
+                    {
+                        cantidadAComprar = actual.demanda;
+                    }
+                }
+
+                this.gridRosas.Rows[this.gridRosas.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Gold;
+
+                watch.Stop();
+                lblTimer.Text = String.Format("Tiempo en generar: {0:00}:{1:00}:{2:00}.{3:00}",
+                    watch.Elapsed.Hours, watch.Elapsed.Minutes, watch.Elapsed.Seconds,
+                    watch.Elapsed.Milliseconds / 10);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hubo un error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 }

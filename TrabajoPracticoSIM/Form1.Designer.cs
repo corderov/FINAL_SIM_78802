@@ -31,23 +31,22 @@ namespace TrabajoPracticoSIM
         {
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.puntoReposicion = new System.Windows.Forms.MaskedTextBox();
+            this.txtPuntoReposicion = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkReposicion = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lotePedido = new System.Windows.Forms.MaskedTextBox();
+            this.txtLotePedido = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.costoFaltante = new System.Windows.Forms.MaskedTextBox();
-            this.costoMantenimiento = new System.Windows.Forms.MaskedTextBox();
-            this.costoPedido = new System.Windows.Forms.MaskedTextBox();
+            this.txtCostoFaltante = new System.Windows.Forms.MaskedTextBox();
+            this.txtCostoMantenimiento = new System.Windows.Forms.MaskedTextBox();
+            this.txtCostoPedido = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Simulacion = new System.Windows.Forms.GroupBox();
-            this.diaHasta = new System.Windows.Forms.MaskedTextBox();
-            this.diaDesde = new System.Windows.Forms.MaskedTextBox();
-            this.cantDias = new System.Windows.Forms.MaskedTextBox();
+            this.txtDiaHasta = new System.Windows.Forms.MaskedTextBox();
+            this.txtDiaDesde = new System.Windows.Forms.MaskedTextBox();
+            this.txtCantDias = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,23 +68,7 @@ namespace TrabajoPracticoSIM
             this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costoAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtProbDemanda0 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda1 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda2 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda3 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda4 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda5 = new System.Windows.Forms.TextBox();
-            this.txtProbDemanda6 = new System.Windows.Forms.TextBox();
+            this.btnAplicarDemanda = new System.Windows.Forms.Button();
             this.txtProbAcumDemanda6 = new System.Windows.Forms.TextBox();
             this.txtProbAcumDemanda5 = new System.Windows.Forms.TextBox();
             this.txtProbAcumDemanda4 = new System.Windows.Forms.TextBox();
@@ -93,7 +76,23 @@ namespace TrabajoPracticoSIM
             this.txtProbAcumDemanda2 = new System.Windows.Forms.TextBox();
             this.txtProbAcumDemanda1 = new System.Windows.Forms.TextBox();
             this.txtProbAcumDemanda0 = new System.Windows.Forms.TextBox();
-            this.btnAplicarDemanda = new System.Windows.Forms.Button();
+            this.txtProbDemanda6 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda5 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda4 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda3 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda2 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda1 = new System.Windows.Forms.TextBox();
+            this.txtProbDemanda0 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtProbAcumDemora5 = new System.Windows.Forms.TextBox();
@@ -117,6 +116,8 @@ namespace TrabajoPracticoSIM
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtInventarioInicial = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Simulacion.SuspendLayout();
@@ -138,11 +139,12 @@ namespace TrabajoPracticoSIM
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.puntoReposicion);
+            this.groupBox1.Controls.Add(this.txtInventarioInicial);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtPuntoReposicion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.checkReposicion);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lotePedido);
+            this.groupBox1.Controls.Add(this.txtLotePedido);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(37, 319);
             this.groupBox1.Name = "groupBox1";
@@ -151,20 +153,20 @@ namespace TrabajoPracticoSIM
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Condiciones";
             // 
-            // puntoReposicion
+            // txtPuntoReposicion
             // 
-            this.puntoReposicion.Enabled = false;
-            this.puntoReposicion.Location = new System.Drawing.Point(145, 97);
-            this.puntoReposicion.Mask = "99999";
-            this.puntoReposicion.Name = "puntoReposicion";
-            this.puntoReposicion.Size = new System.Drawing.Size(100, 20);
-            this.puntoReposicion.TabIndex = 5;
-            this.puntoReposicion.ValidatingType = typeof(int);
+            this.txtPuntoReposicion.Enabled = false;
+            this.txtPuntoReposicion.Location = new System.Drawing.Point(136, 62);
+            this.txtPuntoReposicion.Mask = "99999";
+            this.txtPuntoReposicion.Name = "txtPuntoReposicion";
+            this.txtPuntoReposicion.Size = new System.Drawing.Size(100, 20);
+            this.txtPuntoReposicion.TabIndex = 5;
+            this.txtPuntoReposicion.ValidatingType = typeof(int);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 104);
+            this.label3.Location = new System.Drawing.Point(24, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 4;
@@ -173,35 +175,26 @@ namespace TrabajoPracticoSIM
             // checkReposicion
             // 
             this.checkReposicion.AutoSize = true;
-            this.checkReposicion.Location = new System.Drawing.Point(158, 65);
+            this.checkReposicion.Location = new System.Drawing.Point(6, 69);
             this.checkReposicion.Name = "checkReposicion";
             this.checkReposicion.Size = new System.Drawing.Size(15, 14);
             this.checkReposicion.TabIndex = 3;
             this.checkReposicion.UseVisualStyleBackColor = true;
             this.checkReposicion.CheckedChanged += new System.EventHandler(this.onCheck);
             // 
-            // label2
+            // txtLotePedido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Con Punto de Reposicion";
-            // 
-            // lotePedido
-            // 
-            this.lotePedido.Location = new System.Drawing.Point(124, 28);
-            this.lotePedido.Mask = "99999";
-            this.lotePedido.Name = "lotePedido";
-            this.lotePedido.Size = new System.Drawing.Size(100, 20);
-            this.lotePedido.TabIndex = 1;
-            this.lotePedido.ValidatingType = typeof(int);
+            this.txtLotePedido.Location = new System.Drawing.Point(113, 24);
+            this.txtLotePedido.Mask = "99999";
+            this.txtLotePedido.Name = "txtLotePedido";
+            this.txtLotePedido.Size = new System.Drawing.Size(100, 20);
+            this.txtLotePedido.TabIndex = 1;
+            this.txtLotePedido.ValidatingType = typeof(int);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 31);
+            this.label1.Location = new System.Drawing.Point(28, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
@@ -209,9 +202,9 @@ namespace TrabajoPracticoSIM
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.costoFaltante);
-            this.groupBox2.Controls.Add(this.costoMantenimiento);
-            this.groupBox2.Controls.Add(this.costoPedido);
+            this.groupBox2.Controls.Add(this.txtCostoFaltante);
+            this.groupBox2.Controls.Add(this.txtCostoMantenimiento);
+            this.groupBox2.Controls.Add(this.txtCostoPedido);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label4);
@@ -222,32 +215,35 @@ namespace TrabajoPracticoSIM
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2) Costos";
             // 
-            // costoFaltante
+            // txtCostoFaltante
             // 
-            this.costoFaltante.Location = new System.Drawing.Point(151, 93);
-            this.costoFaltante.Mask = "99999";
-            this.costoFaltante.Name = "costoFaltante";
-            this.costoFaltante.Size = new System.Drawing.Size(100, 20);
-            this.costoFaltante.TabIndex = 6;
-            this.costoFaltante.ValidatingType = typeof(int);
+            this.txtCostoFaltante.Location = new System.Drawing.Point(151, 93);
+            this.txtCostoFaltante.Mask = "99999";
+            this.txtCostoFaltante.Name = "txtCostoFaltante";
+            this.txtCostoFaltante.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoFaltante.TabIndex = 6;
+            this.txtCostoFaltante.Text = "60";
+            this.txtCostoFaltante.ValidatingType = typeof(int);
             // 
-            // costoMantenimiento
+            // txtCostoMantenimiento
             // 
-            this.costoMantenimiento.Location = new System.Drawing.Point(178, 62);
-            this.costoMantenimiento.Mask = "99999";
-            this.costoMantenimiento.Name = "costoMantenimiento";
-            this.costoMantenimiento.Size = new System.Drawing.Size(100, 20);
-            this.costoMantenimiento.TabIndex = 5;
-            this.costoMantenimiento.ValidatingType = typeof(int);
+            this.txtCostoMantenimiento.Location = new System.Drawing.Point(178, 62);
+            this.txtCostoMantenimiento.Mask = "99999";
+            this.txtCostoMantenimiento.Name = "txtCostoMantenimiento";
+            this.txtCostoMantenimiento.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoMantenimiento.TabIndex = 5;
+            this.txtCostoMantenimiento.Text = "12";
+            this.txtCostoMantenimiento.ValidatingType = typeof(int);
             // 
-            // costoPedido
+            // txtCostoPedido
             // 
-            this.costoPedido.Location = new System.Drawing.Point(151, 28);
-            this.costoPedido.Mask = "99999";
-            this.costoPedido.Name = "costoPedido";
-            this.costoPedido.Size = new System.Drawing.Size(100, 20);
-            this.costoPedido.TabIndex = 4;
-            this.costoPedido.ValidatingType = typeof(int);
+            this.txtCostoPedido.Location = new System.Drawing.Point(151, 28);
+            this.txtCostoPedido.Mask = "99999";
+            this.txtCostoPedido.Name = "txtCostoPedido";
+            this.txtCostoPedido.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoPedido.TabIndex = 4;
+            this.txtCostoPedido.Text = "220";
+            this.txtCostoPedido.ValidatingType = typeof(int);
             // 
             // label7
             // 
@@ -278,9 +274,9 @@ namespace TrabajoPracticoSIM
             // 
             // Simulacion
             // 
-            this.Simulacion.Controls.Add(this.diaHasta);
-            this.Simulacion.Controls.Add(this.diaDesde);
-            this.Simulacion.Controls.Add(this.cantDias);
+            this.Simulacion.Controls.Add(this.txtDiaHasta);
+            this.Simulacion.Controls.Add(this.txtDiaDesde);
+            this.Simulacion.Controls.Add(this.txtCantDias);
             this.Simulacion.Controls.Add(this.label9);
             this.Simulacion.Controls.Add(this.lblTimer);
             this.Simulacion.Controls.Add(this.label8);
@@ -293,32 +289,32 @@ namespace TrabajoPracticoSIM
             this.Simulacion.TabStop = false;
             this.Simulacion.Text = "3) Simulacion";
             // 
-            // diaHasta
+            // txtDiaHasta
             // 
-            this.diaHasta.Location = new System.Drawing.Point(115, 90);
-            this.diaHasta.Mask = "99999";
-            this.diaHasta.Name = "diaHasta";
-            this.diaHasta.Size = new System.Drawing.Size(100, 20);
-            this.diaHasta.TabIndex = 25;
-            this.diaHasta.ValidatingType = typeof(int);
+            this.txtDiaHasta.Location = new System.Drawing.Point(115, 90);
+            this.txtDiaHasta.Mask = "99999";
+            this.txtDiaHasta.Name = "txtDiaHasta";
+            this.txtDiaHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaHasta.TabIndex = 25;
+            this.txtDiaHasta.ValidatingType = typeof(int);
             // 
-            // diaDesde
+            // txtDiaDesde
             // 
-            this.diaDesde.Location = new System.Drawing.Point(115, 54);
-            this.diaDesde.Mask = "99999";
-            this.diaDesde.Name = "diaDesde";
-            this.diaDesde.Size = new System.Drawing.Size(100, 20);
-            this.diaDesde.TabIndex = 24;
-            this.diaDesde.ValidatingType = typeof(int);
+            this.txtDiaDesde.Location = new System.Drawing.Point(115, 54);
+            this.txtDiaDesde.Mask = "99999";
+            this.txtDiaDesde.Name = "txtDiaDesde";
+            this.txtDiaDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaDesde.TabIndex = 24;
+            this.txtDiaDesde.ValidatingType = typeof(int);
             // 
-            // cantDias
+            // txtCantDias
             // 
-            this.cantDias.Location = new System.Drawing.Point(149, 25);
-            this.cantDias.Mask = "99999";
-            this.cantDias.Name = "cantDias";
-            this.cantDias.Size = new System.Drawing.Size(100, 20);
-            this.cantDias.TabIndex = 23;
-            this.cantDias.ValidatingType = typeof(int);
+            this.txtCantDias.Location = new System.Drawing.Point(149, 25);
+            this.txtCantDias.Mask = "99999";
+            this.txtCantDias.Name = "txtCantDias";
+            this.txtCantDias.Size = new System.Drawing.Size(100, 20);
+            this.txtCantDias.TabIndex = 23;
+            this.txtCantDias.ValidatingType = typeof(int);
             // 
             // label9
             // 
@@ -358,6 +354,7 @@ namespace TrabajoPracticoSIM
             this.btnGenerar.TabIndex = 17;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.OnClickGenerar);
             // 
             // lblDesdeDias
             // 
@@ -524,151 +521,15 @@ namespace TrabajoPracticoSIM
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Demanda Diaria";
             // 
-            // label10
+            // btnAplicarDemanda
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(44, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Dias";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(121, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Probabilidad";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(219, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Probabilidad Acumulada";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(59, 64);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(13, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "0";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(59, 86);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "1";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(59, 109);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "2";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(59, 135);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "3";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(59, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "4";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(59, 187);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(13, 13);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "5";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(59, 213);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "6";
-            // 
-            // txtProbDemanda0
-            // 
-            this.txtProbDemanda0.Location = new System.Drawing.Point(124, 54);
-            this.txtProbDemanda0.Name = "txtProbDemanda0";
-            this.txtProbDemanda0.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda0.TabIndex = 10;
-            this.txtProbDemanda0.Text = "0,05";
-            // 
-            // txtProbDemanda1
-            // 
-            this.txtProbDemanda1.Location = new System.Drawing.Point(124, 80);
-            this.txtProbDemanda1.Name = "txtProbDemanda1";
-            this.txtProbDemanda1.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda1.TabIndex = 11;
-            this.txtProbDemanda1.Text = "0,20";
-            // 
-            // txtProbDemanda2
-            // 
-            this.txtProbDemanda2.Location = new System.Drawing.Point(124, 106);
-            this.txtProbDemanda2.Name = "txtProbDemanda2";
-            this.txtProbDemanda2.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda2.TabIndex = 12;
-            this.txtProbDemanda2.Text = "0,40";
-            // 
-            // txtProbDemanda3
-            // 
-            this.txtProbDemanda3.Location = new System.Drawing.Point(124, 132);
-            this.txtProbDemanda3.Name = "txtProbDemanda3";
-            this.txtProbDemanda3.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda3.TabIndex = 13;
-            this.txtProbDemanda3.Text = "0,15";
-            // 
-            // txtProbDemanda4
-            // 
-            this.txtProbDemanda4.Location = new System.Drawing.Point(124, 158);
-            this.txtProbDemanda4.Name = "txtProbDemanda4";
-            this.txtProbDemanda4.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda4.TabIndex = 14;
-            this.txtProbDemanda4.Text = "0,10";
-            // 
-            // txtProbDemanda5
-            // 
-            this.txtProbDemanda5.Location = new System.Drawing.Point(124, 184);
-            this.txtProbDemanda5.Name = "txtProbDemanda5";
-            this.txtProbDemanda5.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda5.TabIndex = 15;
-            this.txtProbDemanda5.Text = "0,05";
-            // 
-            // txtProbDemanda6
-            // 
-            this.txtProbDemanda6.Location = new System.Drawing.Point(124, 210);
-            this.txtProbDemanda6.Name = "txtProbDemanda6";
-            this.txtProbDemanda6.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda6.TabIndex = 16;
-            this.txtProbDemanda6.Text = "0,05";
+            this.btnAplicarDemanda.Location = new System.Drawing.Point(392, 216);
+            this.btnAplicarDemanda.Name = "btnAplicarDemanda";
+            this.btnAplicarDemanda.Size = new System.Drawing.Size(75, 23);
+            this.btnAplicarDemanda.TabIndex = 24;
+            this.btnAplicarDemanda.Text = "Aplicar";
+            this.btnAplicarDemanda.UseVisualStyleBackColor = true;
+            this.btnAplicarDemanda.Click += new System.EventHandler(this.OnClickAplicarDemanda);
             // 
             // txtProbAcumDemanda6
             // 
@@ -726,15 +587,151 @@ namespace TrabajoPracticoSIM
             this.txtProbAcumDemanda0.Size = new System.Drawing.Size(56, 20);
             this.txtProbAcumDemanda0.TabIndex = 17;
             // 
-            // btnAplicarDemanda
+            // txtProbDemanda6
             // 
-            this.btnAplicarDemanda.Location = new System.Drawing.Point(392, 216);
-            this.btnAplicarDemanda.Name = "btnAplicarDemanda";
-            this.btnAplicarDemanda.Size = new System.Drawing.Size(75, 23);
-            this.btnAplicarDemanda.TabIndex = 24;
-            this.btnAplicarDemanda.Text = "Aplicar";
-            this.btnAplicarDemanda.UseVisualStyleBackColor = true;
-            this.btnAplicarDemanda.Click += new System.EventHandler(this.OnClickAplicarDemanda);
+            this.txtProbDemanda6.Location = new System.Drawing.Point(124, 210);
+            this.txtProbDemanda6.Name = "txtProbDemanda6";
+            this.txtProbDemanda6.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda6.TabIndex = 16;
+            this.txtProbDemanda6.Text = "0,05";
+            // 
+            // txtProbDemanda5
+            // 
+            this.txtProbDemanda5.Location = new System.Drawing.Point(124, 184);
+            this.txtProbDemanda5.Name = "txtProbDemanda5";
+            this.txtProbDemanda5.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda5.TabIndex = 15;
+            this.txtProbDemanda5.Text = "0,05";
+            // 
+            // txtProbDemanda4
+            // 
+            this.txtProbDemanda4.Location = new System.Drawing.Point(124, 158);
+            this.txtProbDemanda4.Name = "txtProbDemanda4";
+            this.txtProbDemanda4.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda4.TabIndex = 14;
+            this.txtProbDemanda4.Text = "0,10";
+            // 
+            // txtProbDemanda3
+            // 
+            this.txtProbDemanda3.Location = new System.Drawing.Point(124, 132);
+            this.txtProbDemanda3.Name = "txtProbDemanda3";
+            this.txtProbDemanda3.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda3.TabIndex = 13;
+            this.txtProbDemanda3.Text = "0,15";
+            // 
+            // txtProbDemanda2
+            // 
+            this.txtProbDemanda2.Location = new System.Drawing.Point(124, 106);
+            this.txtProbDemanda2.Name = "txtProbDemanda2";
+            this.txtProbDemanda2.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda2.TabIndex = 12;
+            this.txtProbDemanda2.Text = "0,40";
+            // 
+            // txtProbDemanda1
+            // 
+            this.txtProbDemanda1.Location = new System.Drawing.Point(124, 80);
+            this.txtProbDemanda1.Name = "txtProbDemanda1";
+            this.txtProbDemanda1.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda1.TabIndex = 11;
+            this.txtProbDemanda1.Text = "0,20";
+            // 
+            // txtProbDemanda0
+            // 
+            this.txtProbDemanda0.Location = new System.Drawing.Point(124, 54);
+            this.txtProbDemanda0.Name = "txtProbDemanda0";
+            this.txtProbDemanda0.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda0.TabIndex = 10;
+            this.txtProbDemanda0.Text = "0,05";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(59, 213);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 13);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "6";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(59, 187);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(13, 13);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "5";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(59, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "4";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(59, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 13);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "3";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(59, 109);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "2";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(59, 86);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(13, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "1";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(59, 64);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(13, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(219, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Probabilidad Acumulada";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(121, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Probabilidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(44, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Dias";
             // 
             // groupBox4
             // 
@@ -954,6 +951,25 @@ namespace TrabajoPracticoSIM
             this.label29.TabIndex = 0;
             this.label29.Text = "Dias";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Inventario inicial";
+            // 
+            // txtInventarioInicial
+            // 
+            this.txtInventarioInicial.Enabled = false;
+            this.txtInventarioInicial.Location = new System.Drawing.Point(113, 97);
+            this.txtInventarioInicial.Mask = "99999";
+            this.txtInventarioInicial.Name = "txtInventarioInicial";
+            this.txtInventarioInicial.Size = new System.Drawing.Size(100, 20);
+            this.txtInventarioInicial.TabIndex = 7;
+            this.txtInventarioInicial.ValidatingType = typeof(int);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -989,23 +1005,22 @@ namespace TrabajoPracticoSIM
 
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox puntoReposicion;
+        private System.Windows.Forms.MaskedTextBox txtPuntoReposicion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkReposicion;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox lotePedido;
+        private System.Windows.Forms.MaskedTextBox txtLotePedido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox costoFaltante;
-        private System.Windows.Forms.MaskedTextBox costoMantenimiento;
-        private System.Windows.Forms.MaskedTextBox costoPedido;
+        private System.Windows.Forms.MaskedTextBox txtCostoFaltante;
+        private System.Windows.Forms.MaskedTextBox txtCostoMantenimiento;
+        private System.Windows.Forms.MaskedTextBox txtCostoPedido;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox Simulacion;
-        private System.Windows.Forms.MaskedTextBox diaHasta;
-        private System.Windows.Forms.MaskedTextBox diaDesde;
-        private System.Windows.Forms.MaskedTextBox cantDias;
+        private System.Windows.Forms.MaskedTextBox txtDiaHasta;
+        private System.Windows.Forms.MaskedTextBox txtDiaDesde;
+        private System.Windows.Forms.MaskedTextBox txtCantDias;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label label8;
@@ -1075,6 +1090,8 @@ namespace TrabajoPracticoSIM
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.MaskedTextBox txtInventarioInicial;
+        private System.Windows.Forms.Label label2;
     }
 }
 
