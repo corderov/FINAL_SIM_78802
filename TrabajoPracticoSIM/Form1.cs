@@ -13,6 +13,8 @@ namespace TrabajoPracticoSIM
 {
     public partial class Form1 : Form
     {
+        ProbabilidadDemanda probDemanda;
+        ProbabilidadDemora probDemora;
         public Form1()
         {
             InitializeComponent();
@@ -71,7 +73,17 @@ namespace TrabajoPracticoSIM
                 txtProbAcumDemanda5.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5).ToString();
                 txtProbAcumDemanda6.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5 + probDemanda6).ToString();
 
-               
+                double probAcumDemanda0 = probDemanda0;
+                double probAcumDemanda1 = probDemanda0 + probDemanda1;
+                double probAcumDemanda2 = probDemanda0 + probDemanda1 + probDemanda2;
+                double probAcumDemanda3 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3;
+                double probAcumDemanda4 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4;
+                double probAcumDemanda5 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5;
+                double probAcumDemanda6 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5 + probDemanda6;
+
+                probDemanda = new ProbabilidadDemanda(probAcumDemanda0, probAcumDemanda1, probAcumDemanda2, probAcumDemanda3, probAcumDemanda4, probAcumDemanda5, probAcumDemanda6);
+
+
 
             }
             catch (Exception ex)
@@ -114,7 +126,8 @@ namespace TrabajoPracticoSIM
 
                 if ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) != 1)
                 {
-
+                    Console.WriteLine("Sumatoria de probabilidades:" + probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5);
+                    Console.WriteLine("La sumatoria es distinto de 1? ->" + ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) != 1));
                     throw new ArgumentException("La suma de las probabilidades debe ser igual a 1");
                   
                 }
@@ -125,8 +138,16 @@ namespace TrabajoPracticoSIM
                 txtProbAcumDemora3.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3).ToString();
                 txtProbAcumDemora4.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4).ToString();
                 txtProbAcumDemora5.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5).ToString();
-               
 
+                double probAcumDemora0 = probDemora0;
+                double probAcumDemora1 = probDemora0 + probDemora1;
+                double probAcumDemora2 = probDemora0 + probDemora1 + probDemora2;
+                double probAcumDemora3 = probDemora0 + probDemora1 + probDemora2 + probDemora3;
+                double probAcumDemora4 = probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4;
+                double probAcumDemora5 = probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5;
+
+
+                probDemora = new ProbabilidadDemora(probAcumDemora0, probAcumDemora1, probAcumDemora2, probAcumDemora3, probAcumDemora4, probAcumDemora5);
 
 
             }
