@@ -15,6 +15,8 @@ namespace TrabajoPracticoSIM.Clases
         public double RNDDemora { get; }
         public int demora { get; set; }
         public string orden { get; set; }
+        public int llegadaPedido { get; set; }
+        public int disponible { get; set; }
         public string stock { get; set; }
         public int costoPedido { get; set; }
         public int costoAlmacenamiento { get; set; }

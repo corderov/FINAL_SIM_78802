@@ -31,6 +31,8 @@ namespace TrabajoPracticoSIM
         {
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtInventarioInicial = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtPuntoReposicion = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkReposicion = new System.Windows.Forms.CheckBox();
@@ -52,7 +54,7 @@ namespace TrabajoPracticoSIM
             this.label8 = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblDesdeDias = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridSimulacion = new System.Windows.Forms.DataGridView();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,12 +118,10 @@ namespace TrabajoPracticoSIM
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtInventarioInicial = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Simulacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSimulacion)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -152,6 +152,24 @@ namespace TrabajoPracticoSIM
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Condiciones";
+            // 
+            // txtInventarioInicial
+            // 
+            this.txtInventarioInicial.Location = new System.Drawing.Point(113, 97);
+            this.txtInventarioInicial.Mask = "99999";
+            this.txtInventarioInicial.Name = "txtInventarioInicial";
+            this.txtInventarioInicial.Size = new System.Drawing.Size(100, 20);
+            this.txtInventarioInicial.TabIndex = 7;
+            this.txtInventarioInicial.ValidatingType = typeof(int);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Inventario inicial";
             // 
             // txtPuntoReposicion
             // 
@@ -366,10 +384,10 @@ namespace TrabajoPracticoSIM
             this.lblDesdeDias.TabIndex = 18;
             this.lblDesdeDias.Text = "Ingrese dia desde:";
             // 
-            // dataGridView1
+            // gridSimulacion
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.reloj,
             this.rndDemanda,
             this.demanda,
@@ -384,10 +402,10 @@ namespace TrabajoPracticoSIM
             this.km,
             this.costoTotal,
             this.costoAcum});
-            this.dataGridView1.Location = new System.Drawing.Point(37, 490);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1439, 463);
-            this.dataGridView1.TabIndex = 21;
+            this.gridSimulacion.Location = new System.Drawing.Point(37, 490);
+            this.gridSimulacion.Name = "gridSimulacion";
+            this.gridSimulacion.Size = new System.Drawing.Size(1439, 463);
+            this.gridSimulacion.TabIndex = 21;
             // 
             // reloj
             // 
@@ -951,25 +969,6 @@ namespace TrabajoPracticoSIM
             this.label29.TabIndex = 0;
             this.label29.Text = "Dias";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Inventario inicial";
-            // 
-            // txtInventarioInicial
-            // 
-            this.txtInventarioInicial.Enabled = false;
-            this.txtInventarioInicial.Location = new System.Drawing.Point(113, 97);
-            this.txtInventarioInicial.Mask = "99999";
-            this.txtInventarioInicial.Name = "txtInventarioInicial";
-            this.txtInventarioInicial.Size = new System.Drawing.Size(100, 20);
-            this.txtInventarioInicial.TabIndex = 7;
-            this.txtInventarioInicial.ValidatingType = typeof(int);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -977,7 +976,7 @@ namespace TrabajoPracticoSIM
             this.ClientSize = new System.Drawing.Size(1664, 1011);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridSimulacion);
             this.Controls.Add(this.Simulacion);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -991,7 +990,7 @@ namespace TrabajoPracticoSIM
             this.groupBox2.PerformLayout();
             this.Simulacion.ResumeLayout(false);
             this.Simulacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSimulacion)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1026,7 +1025,7 @@ namespace TrabajoPracticoSIM
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Label lblDesdeDias;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridSimulacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndDemanda;
         private System.Windows.Forms.DataGridViewTextBoxColumn demanda;
