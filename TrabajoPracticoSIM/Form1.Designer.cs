@@ -374,7 +374,7 @@ namespace TrabajoPracticoSIM
             this.btnGenerar.Location = new System.Drawing.Point(290, 90);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(198, 40);
-            this.btnGenerar.TabIndex = 17;
+            this.btnGenerar.TabIndex = 7;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.OnClickGenerar);

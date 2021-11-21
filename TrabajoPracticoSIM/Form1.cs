@@ -19,7 +19,9 @@ namespace TrabajoPracticoSIM
         public Form1()
         {
             InitializeComponent();
-            
+            this.gridSimulacion.RowsDefaultCellStyle.BackColor = Color.White;
+            this.gridSimulacion.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
+
         }
 
         private void onCheck(object sender, EventArgs e)
