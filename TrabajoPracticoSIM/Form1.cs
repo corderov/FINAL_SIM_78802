@@ -125,7 +125,7 @@ namespace TrabajoPracticoSIM
                 
                 
 
-                if ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) != 1)
+                if ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) < 1)
                 {
                     Console.WriteLine("Sumatoria de probabilidades:" + probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5);
                     Console.WriteLine("La sumatoria es distinto de 1? ->" + ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) != 1));
@@ -200,7 +200,11 @@ namespace TrabajoPracticoSIM
                 {
                     throw new ArgumentException("Debes ingresar el costo de faltante (Ks)");
                 }
-            
+                if (String.IsNullOrEmpty(txtProbAcumDemanda0.Text) || String.IsNullOrEmpty(txtProbAcumDemora0.Text)) 
+                {
+                    throw new ArgumentException("Debe ingresar las probabilidades de demora y demanda para generar la simulacion");
+                }
+                
 
 
 
@@ -224,14 +228,75 @@ namespace TrabajoPracticoSIM
                     throw new ArgumentException("La diferencia entre el dia desde y hasta debe ser menor igual a 500.");
                 }
 
-                Fila anterior = null;
+                Fila anterior = new Fila(inventarioInicial);
                 Fila actual = null;
 
+                if(diaDesde == 0)
+                {
+                    gridSimulacion.Rows.Add(anterior.agregarFila());
+                }
                 for (int dia = 1; dia <= cantidadDiasaGenerar; dia++)
                 {
 
-                    //actual = new Fila();
+                    actual = new Fila()
+                    {
+                        dia = dia,
+                        RNDDemanda = Math.Truncate(random.NextDouble() * 100) / 100,
+                        demanda = 0,
+                        RNDDemora = null,
+                        demora = null,
+                        orden = false,
+                        llegadaPedido = anterior.llegadaPedido,
+                        disponible = 0,
+                        stock = anterior.stock,
+                        costoPedido = 0,
+                        costoAlmacenamiento = 0,
+                        costoFaltante = 0,
+                        costoTotal = 0,
+                        costoAcum = 0,
+                    };
 
+                    
+                    actual.demanda = probDemanda.GetDemanda((double)actual.RNDDemanda);
+               
+
+                    if (dia % 7 == 1)
+                    {
+                        actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
+                        actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
+                        actual.orden = true;
+                        actual.llegadaPedido = actual.demora + dia;
+                        actual.disponible = 0;
+                        actual.costoPedido = costoPedido;
+
+                        if(actual.demora == 0)
+                        {
+                            actual.disponible = lotePedido;
+                        }
+                    }
+                    if(anterior.llegadaPedido == actual.dia)
+                    {
+                        actual.disponible = lotePedido;
+                        actual.llegadaPedido = null;
+                    }
+                    
+                    int faltante;
+
+                    if(anterior.stock + actual.disponible - actual.demanda <= 0)
+                    {
+                        actual.stock = 0;
+                        faltante = (int)-(anterior.stock + actual.disponible - actual.demanda);
+                        actual.costoFaltante = faltante * costoFaltante;
+                    }
+                    else
+                    {
+                        actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
+                        actual.costoFaltante = 0;
+                    }
+
+                    actual.costoAlmacenamiento = actual.stock * costoAlmacenamiento;
+                    actual.costoTotal = actual.costoPedido + actual.costoAlmacenamiento + actual.costoFaltante;
+                    
                     if (dia == 1)
                     {
                         actual.costoAcum = actual.costoTotal;
@@ -240,61 +305,20 @@ namespace TrabajoPracticoSIM
                     {
                         actual.costoAcum += anterior.costoAcum + actual.costoTotal;
                     }
-                    anterior = actual;
+                    
+                    
 
                     if ((dia >= diaDesde && dia < diaHasta) || dia == cantidadDiasaGenerar)
                     {
-                        DataGridViewRow fila = new DataGridViewRow();
-                        DataGridViewTextBoxCell colDia = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colRNDDemanda = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colDemanda = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colRNDDemora = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colDemora = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colOrden = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colLlegadaPedido = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colDisponible = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colStock = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colCostoPedido = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colCostoAlmacenamiento = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colCostoFaltante = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colCostoTotal = new DataGridViewTextBoxCell();
-                        DataGridViewTextBoxCell colCostoAcum = new DataGridViewTextBoxCell();
 
-                        colDia.Value = dia;
-                        colRNDDemanda.Value = actual.RNDDemanda;
-                        colDemanda.Value = actual.demanda;
-                        colRNDDemora.Value = actual.RNDDemora;
-                        colDemora.Value = actual.demora;
-                        colOrden.Value = actual.orden;
-                        colLlegadaPedido.Value = actual.llegadaPedido;
-                        colDisponible.Value = actual.disponible;
-                        colStock.Value = actual.stock;
-                        colCostoPedido.Value = actual.costoPedido.ToString("F2") + " $";
-                        colCostoAlmacenamiento.Value = actual.costoAlmacenamiento.ToString("F2") + " $";
-                        colCostoFaltante.Value = actual.costoFaltante.ToString("F2") + " $";
-                        colCostoTotal.Value = actual.costoTotal.ToString("F2") + " $";
-                        colCostoAcum.Value = actual.costoAcum.ToString("F2") + " $";
+                        gridSimulacion.Rows.Add(actual.agregarFila());
 
-                        fila.Cells.Add(colDia);
-                        fila.Cells.Add(colRNDDemanda);
-                        fila.Cells.Add(colDemanda);
-                        fila.Cells.Add(colRNDDemora);
-                        fila.Cells.Add(colDemora);
-                        fila.Cells.Add(colOrden);
-                        fila.Cells.Add(colLlegadaPedido);
-                        fila.Cells.Add(colDisponible);
-                        fila.Cells.Add(colStock);
-                        fila.Cells.Add(colCostoPedido);
-                        fila.Cells.Add(colCostoAlmacenamiento);
-                        fila.Cells.Add(colCostoFaltante);
-                        fila.Cells.Add(colCostoTotal);
-                        fila.Cells.Add(colCostoAcum);
-
-                        gridSimulacion.Rows.Add(fila);
+                        
                     }
+                    anterior = actual;
                 }
 
-                this.gridSimulacion.Rows[this.gridSimulacion.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Gold;
+                this.gridSimulacion.Rows[this.gridSimulacion.Rows.Count-1].DefaultCellStyle.BackColor = Color.Gold;
 
                 watch.Stop();
                 lblTimer.Text = String.Format("Tiempo en generar: {0:00}:{1:00}:{2:00}.{3:00}",
