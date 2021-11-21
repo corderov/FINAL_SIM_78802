@@ -235,88 +235,113 @@ namespace TrabajoPracticoSIM
                 {
                     gridSimulacion.Rows.Add(anterior.agregarFila());
                 }
-                for (int dia = 1; dia <= cantidadDiasaGenerar; dia++)
-                {
-
-                    actual = new Fila()
+                
+                    for (int dia = 1; dia <= cantidadDiasaGenerar; dia++)
                     {
-                        dia = dia,
-                        RNDDemanda = Math.Truncate(random.NextDouble() * 100) / 100,
-                        demanda = 0,
-                        RNDDemora = null,
-                        demora = null,
-                        orden = false,
-                        llegadaPedido = anterior.llegadaPedido,
-                        disponible = 0,
-                        stock = anterior.stock,
-                        costoPedido = 0,
-                        costoAlmacenamiento = 0,
-                        costoFaltante = 0,
-                        costoTotal = 0,
-                        costoAcum = 0,
-                    };
 
-                    
-                    actual.demanda = probDemanda.GetDemanda((double)actual.RNDDemanda);
-               
-
-                    if (dia % 7 == 1)
-                    {
-                        actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
-                        actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
-                        actual.orden = true;
-                        actual.llegadaPedido = actual.demora + dia;
-                        actual.disponible = 0;
-                        actual.costoPedido = costoPedido;
-
-                        if(actual.demora == 0)
+                        actual = new Fila()
                         {
-                            actual.disponible = lotePedido;
-                        }
-                    }
-                    if(anterior.llegadaPedido == actual.dia)
-                    {
-                        actual.disponible = lotePedido;
-                        actual.llegadaPedido = null;
-                    }
-                    
-                    int faltante;
+                            dia = dia,
+                            RNDDemanda = Math.Truncate(random.NextDouble() * 100) / 100,
+                            demanda = 0,
+                            RNDDemora = null,
+                            demora = null,
+                            orden = false,
+                            llegadaPedido = anterior.llegadaPedido,
+                            disponible = 0,
+                            stock = anterior.stock,
+                            costoPedido = 0,
+                            costoAlmacenamiento = 0,
+                            costoFaltante = 0,
+                            costoTotal = 0,
+                            costoAcum = 0,
+                        };
 
-                    if(anterior.stock + actual.disponible - actual.demanda <= 0)
-                    {
-                        actual.stock = 0;
-                        faltante = (int)-(anterior.stock + actual.disponible - actual.demanda);
-                        actual.costoFaltante = faltante * costoFaltante;
-                    }
-                    else
-                    {
-                        actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
-                        actual.costoFaltante = 0;
-                    }
 
-                    actual.costoAlmacenamiento = actual.stock * costoAlmacenamiento;
-                    actual.costoTotal = actual.costoPedido + actual.costoAlmacenamiento + actual.costoFaltante;
-                    
-                    if (dia == 1)
-                    {
-                        actual.costoAcum = actual.costoTotal;
-                    }
-                    else
-                    {
-                        actual.costoAcum += anterior.costoAcum + actual.costoTotal;
-                    }
-                    
-                    
-
-                    if ((dia >= diaDesde && dia < diaHasta) || dia == cantidadDiasaGenerar)
-                    {
-
-                        gridSimulacion.Rows.Add(actual.agregarFila());
+                        actual.demanda = probDemanda.GetDemanda((double)actual.RNDDemanda);
 
                         
+                        if (anterior.llegadaPedido <= actual.dia)
+                        {
+                            actual.disponible = lotePedido;
+                            actual.llegadaPedido = null;
+                        }
+
+                        int faltante;
+
+                        if (anterior.stock + actual.disponible - actual.demanda <= 0)
+                        {
+                            actual.stock = 0;
+                            faltante = (int)-(anterior.stock + actual.disponible - actual.demanda);
+                            actual.costoFaltante = faltante * costoFaltante;
+                        }
+                        else
+                        {
+                            actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
+                            actual.costoFaltante = 0;
+                        }
+                        if (checkReposicion.Checked)
+                        {
+                            if (actual.stock <= puntoReposicion && actual.llegadaPedido==null)
+                        {
+                            actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
+                            actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
+                            actual.orden = true;
+                            actual.llegadaPedido = actual.demora + dia;
+                            actual.disponible = 0;
+                            actual.costoPedido = costoPedido;
+
+                            if (actual.demora == 0)
+                            {
+                                actual.disponible = lotePedido;
+                            }
+                        }
+
+                        }
+                        else
+                        {
+                            if (dia % 7 == 1)
+                            {
+                                actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
+                                actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
+                                actual.orden = true;
+                                actual.llegadaPedido = actual.demora + dia;
+                                actual.disponible = 0;
+                                actual.costoPedido = costoPedido;
+
+                                if (actual.demora == 0)
+                                {
+                                    actual.disponible = lotePedido;
+                                }
+                            }
+                        }
+                        
+
+                        actual.costoAlmacenamiento = actual.stock * costoAlmacenamiento;
+                        actual.costoTotal = actual.costoPedido + actual.costoAlmacenamiento + actual.costoFaltante;
+
+                        if (dia == 1)
+                        {
+                            actual.costoAcum = actual.costoTotal;
+                        }
+                        else
+                        {
+                            actual.costoAcum += anterior.costoAcum + actual.costoTotal;
+                        }
+
+
+
+                        if ((dia >= diaDesde && dia < diaHasta) || dia == cantidadDiasaGenerar)
+                        {
+
+                            gridSimulacion.Rows.Add(actual.agregarFila());
+
+
+                        }
+                        anterior = actual;
                     }
-                    anterior = actual;
-                }
+               
+                
 
                 this.gridSimulacion.Rows[this.gridSimulacion.Rows.Count-1].DefaultCellStyle.BackColor = Color.Gold;
 

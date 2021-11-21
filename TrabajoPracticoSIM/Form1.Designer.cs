@@ -55,6 +55,20 @@ namespace TrabajoPracticoSIM
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblDesdeDias = new System.Windows.Forms.Label();
             this.gridSimulacion = new System.Windows.Forms.DataGridView();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndDemora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.demora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llegadaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ko = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kmm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.km = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAplicarDemanda = new System.Windows.Forms.Button();
             this.txtProbAcumDemanda6 = new System.Windows.Forms.TextBox();
@@ -104,20 +118,6 @@ namespace TrabajoPracticoSIM
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndDemora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.demora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.llegadaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ko = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kmm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.km = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costoAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Simulacion.SuspendLayout();
@@ -412,6 +412,104 @@ namespace TrabajoPracticoSIM
             this.gridSimulacion.Name = "gridSimulacion";
             this.gridSimulacion.Size = new System.Drawing.Size(1439, 463);
             this.gridSimulacion.TabIndex = 21;
+            // 
+            // reloj
+            // 
+            this.reloj.Frozen = true;
+            this.reloj.HeaderText = "Reloj (dias)";
+            this.reloj.Name = "reloj";
+            this.reloj.ReadOnly = true;
+            // 
+            // rndDemanda
+            // 
+            this.rndDemanda.Frozen = true;
+            this.rndDemanda.HeaderText = "RND Demanda";
+            this.rndDemanda.Name = "rndDemanda";
+            this.rndDemanda.ReadOnly = true;
+            // 
+            // demanda
+            // 
+            this.demanda.Frozen = true;
+            this.demanda.HeaderText = "Demanda";
+            this.demanda.Name = "demanda";
+            this.demanda.ReadOnly = true;
+            // 
+            // rndDemora
+            // 
+            this.rndDemora.Frozen = true;
+            this.rndDemora.HeaderText = "RND Demora";
+            this.rndDemora.Name = "rndDemora";
+            this.rndDemora.ReadOnly = true;
+            // 
+            // demora
+            // 
+            this.demora.Frozen = true;
+            this.demora.HeaderText = "Demora";
+            this.demora.Name = "demora";
+            this.demora.ReadOnly = true;
+            // 
+            // orden
+            // 
+            this.orden.Frozen = true;
+            this.orden.HeaderText = "Orden";
+            this.orden.Name = "orden";
+            this.orden.ReadOnly = true;
+            // 
+            // llegadaPedido
+            // 
+            this.llegadaPedido.Frozen = true;
+            this.llegadaPedido.HeaderText = "Llegada Pedido";
+            this.llegadaPedido.Name = "llegadaPedido";
+            this.llegadaPedido.ReadOnly = true;
+            // 
+            // disponible
+            // 
+            this.disponible.Frozen = true;
+            this.disponible.HeaderText = "Disponible";
+            this.disponible.Name = "disponible";
+            this.disponible.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.Frozen = true;
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // ko
+            // 
+            this.ko.Frozen = true;
+            this.ko.HeaderText = "Ko";
+            this.ko.Name = "ko";
+            this.ko.ReadOnly = true;
+            // 
+            // kmm
+            // 
+            this.kmm.Frozen = true;
+            this.kmm.HeaderText = "Km";
+            this.kmm.Name = "kmm";
+            this.kmm.ReadOnly = true;
+            // 
+            // km
+            // 
+            this.km.Frozen = true;
+            this.km.HeaderText = "Ks";
+            this.km.Name = "km";
+            this.km.ReadOnly = true;
+            // 
+            // costoTotal
+            // 
+            this.costoTotal.Frozen = true;
+            this.costoTotal.HeaderText = "Costo Total";
+            this.costoTotal.Name = "costoTotal";
+            this.costoTotal.ReadOnly = true;
+            // 
+            // costoAcum
+            // 
+            this.costoAcum.Frozen = true;
+            this.costoAcum.HeaderText = "Costo Acum";
+            this.costoAcum.Name = "costoAcum";
+            this.costoAcum.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -876,104 +974,6 @@ namespace TrabajoPracticoSIM
             this.label29.Size = new System.Drawing.Size(28, 13);
             this.label29.TabIndex = 0;
             this.label29.Text = "Dias";
-            // 
-            // reloj
-            // 
-            this.reloj.Frozen = true;
-            this.reloj.HeaderText = "Reloj (dias)";
-            this.reloj.Name = "reloj";
-            this.reloj.ReadOnly = true;
-            // 
-            // rndDemanda
-            // 
-            this.rndDemanda.Frozen = true;
-            this.rndDemanda.HeaderText = "RND Demanda";
-            this.rndDemanda.Name = "rndDemanda";
-            this.rndDemanda.ReadOnly = true;
-            // 
-            // demanda
-            // 
-            this.demanda.Frozen = true;
-            this.demanda.HeaderText = "Demanda";
-            this.demanda.Name = "demanda";
-            this.demanda.ReadOnly = true;
-            // 
-            // rndDemora
-            // 
-            this.rndDemora.Frozen = true;
-            this.rndDemora.HeaderText = "RND Demora";
-            this.rndDemora.Name = "rndDemora";
-            this.rndDemora.ReadOnly = true;
-            // 
-            // demora
-            // 
-            this.demora.Frozen = true;
-            this.demora.HeaderText = "Demora";
-            this.demora.Name = "demora";
-            this.demora.ReadOnly = true;
-            // 
-            // orden
-            // 
-            this.orden.Frozen = true;
-            this.orden.HeaderText = "Orden";
-            this.orden.Name = "orden";
-            this.orden.ReadOnly = true;
-            // 
-            // llegadaPedido
-            // 
-            this.llegadaPedido.Frozen = true;
-            this.llegadaPedido.HeaderText = "Llegada Pedido";
-            this.llegadaPedido.Name = "llegadaPedido";
-            this.llegadaPedido.ReadOnly = true;
-            // 
-            // disponible
-            // 
-            this.disponible.Frozen = true;
-            this.disponible.HeaderText = "Disponible";
-            this.disponible.Name = "disponible";
-            this.disponible.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.Frozen = true;
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            // 
-            // ko
-            // 
-            this.ko.Frozen = true;
-            this.ko.HeaderText = "Ko";
-            this.ko.Name = "ko";
-            this.ko.ReadOnly = true;
-            // 
-            // kmm
-            // 
-            this.kmm.Frozen = true;
-            this.kmm.HeaderText = "Km";
-            this.kmm.Name = "kmm";
-            this.kmm.ReadOnly = true;
-            // 
-            // km
-            // 
-            this.km.Frozen = true;
-            this.km.HeaderText = "Ks";
-            this.km.Name = "km";
-            this.km.ReadOnly = true;
-            // 
-            // costoTotal
-            // 
-            this.costoTotal.Frozen = true;
-            this.costoTotal.HeaderText = "Costo Total";
-            this.costoTotal.Name = "costoTotal";
-            this.costoTotal.ReadOnly = true;
-            // 
-            // costoAcum
-            // 
-            this.costoAcum.Frozen = true;
-            this.costoAcum.HeaderText = "Costo Acum";
-            this.costoAcum.Name = "costoAcum";
-            this.costoAcum.ReadOnly = true;
             // 
             // Form1
             // 
