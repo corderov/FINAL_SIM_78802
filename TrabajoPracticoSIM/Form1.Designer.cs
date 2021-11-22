@@ -312,7 +312,7 @@ namespace TrabajoPracticoSIM
             // txtDiaHasta
             // 
             this.txtDiaHasta.Location = new System.Drawing.Point(115, 90);
-            this.txtDiaHasta.Mask = "99999";
+            this.txtDiaHasta.Mask = "99999999";
             this.txtDiaHasta.Name = "txtDiaHasta";
             this.txtDiaHasta.Size = new System.Drawing.Size(100, 20);
             this.txtDiaHasta.TabIndex = 25;
@@ -322,7 +322,7 @@ namespace TrabajoPracticoSIM
             // txtDiaDesde
             // 
             this.txtDiaDesde.Location = new System.Drawing.Point(115, 54);
-            this.txtDiaDesde.Mask = "99999";
+            this.txtDiaDesde.Mask = "99999999";
             this.txtDiaDesde.Name = "txtDiaDesde";
             this.txtDiaDesde.Size = new System.Drawing.Size(100, 20);
             this.txtDiaDesde.TabIndex = 24;
@@ -332,7 +332,7 @@ namespace TrabajoPracticoSIM
             // txtCantDias
             // 
             this.txtCantDias.Location = new System.Drawing.Point(149, 25);
-            this.txtCantDias.Mask = "99999";
+            this.txtCantDias.Mask = "99999999";
             this.txtCantDias.Name = "txtCantDias";
             this.txtCantDias.Size = new System.Drawing.Size(100, 20);
             this.txtCantDias.TabIndex = 23;
@@ -410,7 +410,7 @@ namespace TrabajoPracticoSIM
             this.costoAcum});
             this.gridSimulacion.Location = new System.Drawing.Point(37, 490);
             this.gridSimulacion.Name = "gridSimulacion";
-            this.gridSimulacion.Size = new System.Drawing.Size(1439, 463);
+            this.gridSimulacion.Size = new System.Drawing.Size(1525, 463);
             this.gridSimulacion.TabIndex = 21;
             // 
             // reloj

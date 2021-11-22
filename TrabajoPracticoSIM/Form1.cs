@@ -30,63 +30,73 @@ namespace TrabajoPracticoSIM
 
         }
 
+        private void limpiarDemanda()
+        {
+            txtProbAcumDemanda0.Text = null;
+            txtProbAcumDemanda1.Text = null;
+            txtProbAcumDemanda2.Text = null;
+            txtProbAcumDemanda3.Text = null;
+            txtProbAcumDemanda4.Text = null;
+            txtProbAcumDemanda5.Text = null;
+            txtProbAcumDemanda6.Text = null;
+        }
+
         private void OnClickAplicarDemanda(object sender, EventArgs e)
         {
             try
             {
-                if (!Double.TryParse(txtProbDemanda0.Text, out double probDemanda0))
+                if (!Decimal.TryParse(txtProbDemanda0.Text, out decimal probDemanda0))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 0");
                 }
-                if (!Double.TryParse(txtProbDemanda1.Text, out double probDemanda1))
+                if (!Decimal.TryParse(txtProbDemanda1.Text, out decimal probDemanda1))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 1");
                 }
-                if (!Double.TryParse(txtProbDemanda2.Text, out double probDemanda2))
+                if (!Decimal.TryParse(txtProbDemanda2.Text, out decimal probDemanda2))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 2");
                 }
-                if (!Double.TryParse(txtProbDemanda3.Text, out double probDemanda3))
+                if (!Decimal.TryParse(txtProbDemanda3.Text, out decimal probDemanda3))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 3");
                 }
-                if (!Double.TryParse(txtProbDemanda4.Text, out double probDemanda4))
+                if (!Decimal.TryParse(txtProbDemanda4.Text, out decimal probDemanda4))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 4");
                 }
-                if (!Double.TryParse(txtProbDemanda5.Text, out double probDemanda5))
+                if (!Decimal.TryParse(txtProbDemanda5.Text, out decimal probDemanda5))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 5");
                 }
-                if (!Double.TryParse(txtProbDemanda6.Text, out double probDemanda6))
+                if (!Decimal.TryParse(txtProbDemanda6.Text, out decimal probDemanda6))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demanda 6");
                 }
 
                 if (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5 + probDemanda6 != 1)
                 {
+                    limpiarDemanda();
                     throw new ArgumentException("La suma de las probabilidades debe ser igual a 1");
                 }
 
-                txtProbAcumDemanda0.Text = probDemanda0.ToString();
-                txtProbAcumDemanda1.Text = (probDemanda0 + probDemanda1).ToString();
-                txtProbAcumDemanda2.Text = (probDemanda0 + probDemanda1 + probDemanda2).ToString();
-                txtProbAcumDemanda3.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3).ToString();
-                txtProbAcumDemanda4.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4).ToString();
-                txtProbAcumDemanda5.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5).ToString();
-                txtProbAcumDemanda6.Text = (probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5 + probDemanda6).ToString();
+                decimal probAcumDemanda0 = probDemanda0;
+                decimal probAcumDemanda1 = probAcumDemanda0 + probDemanda1;
+                decimal probAcumDemanda2 = probAcumDemanda1 + probDemanda2;
+                decimal probAcumDemanda3 = probAcumDemanda2 + probDemanda3;
+                decimal probAcumDemanda4 = probAcumDemanda3 + probDemanda4;
+                decimal probAcumDemanda5 = probAcumDemanda4 + probDemanda5;
+                decimal probAcumDemanda6 = probAcumDemanda5 + probDemanda6;
 
-                double probAcumDemanda0 = probDemanda0;
-                double probAcumDemanda1 = probDemanda0 + probDemanda1;
-                double probAcumDemanda2 = probDemanda0 + probDemanda1 + probDemanda2;
-                double probAcumDemanda3 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3;
-                double probAcumDemanda4 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4;
-                double probAcumDemanda5 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5;
-                double probAcumDemanda6 = probDemanda0 + probDemanda1 + probDemanda2 + probDemanda3 + probDemanda4 + probDemanda5 + probDemanda6;
+                txtProbAcumDemanda0.Text = probAcumDemanda0.ToString();
+                txtProbAcumDemanda1.Text = probAcumDemanda1.ToString();
+                txtProbAcumDemanda2.Text = probAcumDemanda2.ToString();
+                txtProbAcumDemanda3.Text = probAcumDemanda3.ToString();
+                txtProbAcumDemanda4.Text = probAcumDemanda4.ToString();
+                txtProbAcumDemanda5.Text = probAcumDemanda5.ToString();
+                txtProbAcumDemanda6.Text = probAcumDemanda6.ToString();
 
                 probDemanda = new ProbabilidadDemanda(probAcumDemanda0, probAcumDemanda1, probAcumDemanda2, probAcumDemanda3, probAcumDemanda4, probAcumDemanda5, probAcumDemanda6);
-
-
 
             }
             catch (Exception ex)
@@ -96,63 +106,66 @@ namespace TrabajoPracticoSIM
 
         }
 
+        private void limpiarDemora()
+        {
+            txtProbAcumDemora0.Text = null;
+            txtProbAcumDemora1.Text = null;
+            txtProbAcumDemora2.Text = null;
+            txtProbAcumDemora3.Text = null;
+            txtProbAcumDemora4.Text = null;
+            txtProbAcumDemora5.Text = null;
+        }
+
         private void OnClickAplicarDemora(object sender, EventArgs e)
         {
             try
             {
-                if (!Double.TryParse(txtProbDemora0.Text, out double probDemora0))
+                if (!Decimal.TryParse(txtProbDemora0.Text, out decimal probDemora0))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 0");
                 }
-                if (!Double.TryParse(txtProbDemora1.Text, out double probDemora1))
+                if (!Decimal.TryParse(txtProbDemora1.Text, out decimal probDemora1))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 1");
                 }
-                if (!Double.TryParse(txtProbDemora2.Text, out double probDemora2))
+                if (!Decimal.TryParse(txtProbDemora2.Text, out decimal  probDemora2))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 2");
                 }
-                if (!Double.TryParse(txtProbDemora3.Text, out double probDemora3))
+                if (!Decimal.TryParse(txtProbDemora3.Text, out decimal probDemora3))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 3");
                 }
-                if (!Double.TryParse(txtProbDemora4.Text, out double probDemora4))
+                if (!Decimal.TryParse(txtProbDemora4.Text, out decimal probDemora4))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 4");
                 }
-                if (!Double.TryParse(txtProbDemora5.Text, out double probDemora5))
+                if (!Decimal.TryParse(txtProbDemora5.Text, out decimal probDemora5))
                 {
                     throw new ArgumentException("Debe ingresar una probabilidad de demora 5");
                 }
-                
-                
 
-                if ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) < 1)
+                if ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5).CompareTo(1m) != 0)
                 {
-                    Console.WriteLine("Sumatoria de probabilidades:" + probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5);
-                    Console.WriteLine("La sumatoria es distinto de 1? ->" + ((probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5) != 1));
-                    throw new ArgumentException("La suma de las probabilidades debe ser igual a 1");
-                  
+                    limpiarDemora();
+                    throw new ArgumentException("La suma de las probabilidades debe ser igual a 1"); 
                 }
 
-                txtProbAcumDemora0.Text = probDemora0.ToString();
-                txtProbAcumDemora1.Text = (probDemora0 + probDemora1).ToString();
-                txtProbAcumDemora2.Text = (probDemora0 + probDemora1 + probDemora2).ToString();
-                txtProbAcumDemora3.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3).ToString();
-                txtProbAcumDemora4.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4).ToString();
-                txtProbAcumDemora5.Text = (probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5).ToString();
+                decimal probAcumDemora0 = probDemora0;
+                decimal probAcumDemora1 = probAcumDemora0 + probDemora1;
+                decimal probAcumDemora2 = probAcumDemora1 + probDemora2;
+                decimal probAcumDemora3 = probAcumDemora2 + probDemora3;
+                decimal probAcumDemora4 = probAcumDemora3 + probDemora4;
+                decimal probAcumDemora5 = probAcumDemora4 + probDemora5;
 
-                double probAcumDemora0 = probDemora0;
-                double probAcumDemora1 = probDemora0 + probDemora1;
-                double probAcumDemora2 = probDemora0 + probDemora1 + probDemora2;
-                double probAcumDemora3 = probDemora0 + probDemora1 + probDemora2 + probDemora3;
-                double probAcumDemora4 = probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4;
-                double probAcumDemora5 = probDemora0 + probDemora1 + probDemora2 + probDemora3 + probDemora4 + probDemora5;
-
+                txtProbAcumDemora0.Text = probAcumDemora0.ToString();
+                txtProbAcumDemora1.Text = probAcumDemora1.ToString();
+                txtProbAcumDemora2.Text = probAcumDemora2.ToString();
+                txtProbAcumDemora3.Text = probAcumDemora3.ToString();
+                txtProbAcumDemora4.Text = probAcumDemora4.ToString();
+                txtProbAcumDemora5.Text = probAcumDemora5.ToString();
 
                 probDemora = new ProbabilidadDemora(probAcumDemora0, probAcumDemora1, probAcumDemora2, probAcumDemora3, probAcumDemora4, probAcumDemora5);
-
-
             }
             catch (Exception ex)
             {
@@ -206,9 +219,7 @@ namespace TrabajoPracticoSIM
                 {
                     throw new ArgumentException("Debe ingresar las probabilidades de demora y demanda para generar la simulacion");
                 }
-                
-
-
+               
 
                 Stopwatch watch = new Stopwatch();
                 watch.Start();
@@ -260,7 +271,7 @@ namespace TrabajoPracticoSIM
                         };
 
 
-                        actual.demanda = probDemanda.GetDemanda((double)actual.RNDDemanda);
+                        actual.demanda = probDemanda.GetDemanda((decimal)actual.RNDDemanda);
 
                         
                         if (anterior.llegadaPedido <= actual.dia)
@@ -287,7 +298,7 @@ namespace TrabajoPracticoSIM
                             if (actual.stock <= puntoReposicion && actual.llegadaPedido==null)
                         {
                             actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
-                            actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
+                            actual.demora = probDemora.GetDemora((decimal)actual.RNDDemora);
                             actual.orden = true;
                             actual.llegadaPedido = actual.demora + dia;
                             actual.disponible = 0;
@@ -305,7 +316,7 @@ namespace TrabajoPracticoSIM
                             if (dia % 7 == 1)
                             {
                                 actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
-                                actual.demora = probDemora.GetDemora((double)actual.RNDDemora);
+                                actual.demora = probDemora.GetDemora((decimal)actual.RNDDemora);
                                 actual.orden = true;
                                 actual.llegadaPedido = actual.demora + dia;
                                 actual.disponible = 0;

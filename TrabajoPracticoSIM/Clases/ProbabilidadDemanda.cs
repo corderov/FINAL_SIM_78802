@@ -8,15 +8,15 @@ namespace TrabajoPracticoSIM.Clases
 {
     public class ProbabilidadDemanda
     {
-        public double probDemanda0;
-        public double probDemanda1;
-        public double probDemanda2;
-        public double probDemanda3;
-        public double probDemanda4;
-        public double probDemanda5;
-        public double probDemanda6;
+        public decimal probDemanda0;
+        public decimal probDemanda1;
+        public decimal probDemanda2;
+        public decimal probDemanda3;
+        public decimal probDemanda4;
+        public decimal probDemanda5;
+        public decimal probDemanda6;
 
-        public ProbabilidadDemanda(double prob0, double prob1, double prob2, double prob3, double prob4, double prob5, double prob6)
+        public ProbabilidadDemanda(decimal prob0, decimal prob1, decimal prob2, decimal prob3, decimal prob4, decimal prob5, decimal prob6)
         {
             this.probDemanda0 = prob0;
             this.probDemanda1 = prob1;
@@ -27,7 +27,7 @@ namespace TrabajoPracticoSIM.Clases
             this.probDemanda6 = prob6;
         }
 
-        public int GetDemanda(double rnd)
+        public int GetDemanda(decimal rnd)
         {
             int resultado = rnd < probDemanda0 ? 0 : (rnd < probDemanda1 ? 1 : (rnd < probDemanda2 ? 2 : (rnd < probDemanda3 ? 3 : (rnd < probDemanda4 ? 4 : (rnd < probDemanda5 ? 5 : 6)))));
             return resultado;

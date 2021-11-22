@@ -8,15 +8,15 @@ namespace TrabajoPracticoSIM.Clases
 {
     public class ProbabilidadDemora
     {
-        public double probDemora0;
-        public double probDemora1;
-        public double probDemora2;
-        public double probDemora3;
-        public double probDemora4;
-        public double probDemora5;
+        public decimal probDemora0;
+        public decimal probDemora1;
+        public decimal probDemora2;
+        public decimal probDemora3;
+        public decimal probDemora4;
+        public decimal probDemora5;
         
 
-        public ProbabilidadDemora(double prob0, double prob1, double prob2, double prob3, double prob4, double prob5)
+        public ProbabilidadDemora(decimal prob0, decimal prob1, decimal prob2, decimal prob3, decimal prob4, decimal prob5)
         {
             this.probDemora0 = prob0;
             this.probDemora1 = prob1;
@@ -27,10 +27,9 @@ namespace TrabajoPracticoSIM.Clases
             
         }
 
-        public int GetDemora(double rnd)
+        public int GetDemora(decimal rnd)
         {
-            int resultado = rnd < probDemora0 ? 0 : (rnd < probDemora1 ? 1 : (rnd < probDemora2 ? 2 : (rnd < probDemora3 ? 3 : (rnd < probDemora4 ? 4 :  5 ))));
-            return resultado;
+            return rnd < probDemora0 ? 0 : (rnd < probDemora1 ? 1 : (rnd < probDemora2 ? 2 : (rnd < probDemora3 ? 3 : (rnd < probDemora4 ? 4 :  5 ))));
         }
     }
 }
