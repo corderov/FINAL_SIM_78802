@@ -94,7 +94,7 @@ namespace TrabajoPracticoSIM.Clases
             colDemanda.Value = this.demanda;
             colRNDDemora.Value = this.RNDDemora;
             colDemora.Value = this.demora;
-            colOrden.Value = this.orden;
+            colOrden.Value = this.orden == true ? "Si" : "No" ;
             colLlegadaPedido.Value = this.llegadaPedido;
             colDisponible.Value = this.disponible;
             colStock.Value = this.stock;

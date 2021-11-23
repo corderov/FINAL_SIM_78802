@@ -29,6 +29,7 @@ namespace TrabajoPracticoSIM
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtInventarioInicial = new System.Windows.Forms.MaskedTextBox();
@@ -55,20 +56,6 @@ namespace TrabajoPracticoSIM
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblDesdeDias = new System.Windows.Forms.Label();
             this.gridSimulacion = new System.Windows.Forms.DataGridView();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndDemora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.demora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.llegadaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ko = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kmm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.km = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costoAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAplicarDemanda = new System.Windows.Forms.Button();
             this.txtProbAcumDemanda6 = new System.Windows.Forms.TextBox();
@@ -118,12 +105,29 @@ namespace TrabajoPracticoSIM
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.costoPromedioXDia = new System.Windows.Forms.Label();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndDemora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.demora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llegadaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ko = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kmm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.km = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Simulacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSimulacion)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -408,10 +412,503 @@ namespace TrabajoPracticoSIM
             this.km,
             this.costoTotal,
             this.costoAcum});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSimulacion.DefaultCellStyle = dataGridViewCellStyle1;
             this.gridSimulacion.Location = new System.Drawing.Point(37, 490);
             this.gridSimulacion.Name = "gridSimulacion";
             this.gridSimulacion.Size = new System.Drawing.Size(1525, 463);
             this.gridSimulacion.TabIndex = 21;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnAplicarDemanda);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda6);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda5);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda4);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda3);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda2);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda1);
+            this.groupBox3.Controls.Add(this.txtProbAcumDemanda0);
+            this.groupBox3.Controls.Add(this.txtProbDemanda6);
+            this.groupBox3.Controls.Add(this.txtProbDemanda5);
+            this.groupBox3.Controls.Add(this.txtProbDemanda4);
+            this.groupBox3.Controls.Add(this.txtProbDemanda3);
+            this.groupBox3.Controls.Add(this.txtProbDemanda2);
+            this.groupBox3.Controls.Add(this.txtProbDemanda1);
+            this.groupBox3.Controls.Add(this.txtProbDemanda0);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            this.groupBox3.Location = new System.Drawing.Point(37, 45);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(481, 268);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Demanda Diaria";
+            // 
+            // btnAplicarDemanda
+            // 
+            this.btnAplicarDemanda.Location = new System.Drawing.Point(376, 225);
+            this.btnAplicarDemanda.Name = "btnAplicarDemanda";
+            this.btnAplicarDemanda.Size = new System.Drawing.Size(75, 23);
+            this.btnAplicarDemanda.TabIndex = 24;
+            this.btnAplicarDemanda.Text = "Aplicar";
+            this.btnAplicarDemanda.UseVisualStyleBackColor = true;
+            this.btnAplicarDemanda.Click += new System.EventHandler(this.OnClickAplicarDemanda);
+            // 
+            // txtProbAcumDemanda6
+            // 
+            this.txtProbAcumDemanda6.Enabled = false;
+            this.txtProbAcumDemanda6.Location = new System.Drawing.Point(253, 220);
+            this.txtProbAcumDemanda6.Name = "txtProbAcumDemanda6";
+            this.txtProbAcumDemanda6.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda6.TabIndex = 23;
+            // 
+            // txtProbAcumDemanda5
+            // 
+            this.txtProbAcumDemanda5.Enabled = false;
+            this.txtProbAcumDemanda5.Location = new System.Drawing.Point(253, 194);
+            this.txtProbAcumDemanda5.Name = "txtProbAcumDemanda5";
+            this.txtProbAcumDemanda5.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda5.TabIndex = 22;
+            // 
+            // txtProbAcumDemanda4
+            // 
+            this.txtProbAcumDemanda4.Enabled = false;
+            this.txtProbAcumDemanda4.Location = new System.Drawing.Point(253, 168);
+            this.txtProbAcumDemanda4.Name = "txtProbAcumDemanda4";
+            this.txtProbAcumDemanda4.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda4.TabIndex = 21;
+            // 
+            // txtProbAcumDemanda3
+            // 
+            this.txtProbAcumDemanda3.Enabled = false;
+            this.txtProbAcumDemanda3.Location = new System.Drawing.Point(253, 142);
+            this.txtProbAcumDemanda3.Name = "txtProbAcumDemanda3";
+            this.txtProbAcumDemanda3.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda3.TabIndex = 20;
+            // 
+            // txtProbAcumDemanda2
+            // 
+            this.txtProbAcumDemanda2.Enabled = false;
+            this.txtProbAcumDemanda2.Location = new System.Drawing.Point(253, 116);
+            this.txtProbAcumDemanda2.Name = "txtProbAcumDemanda2";
+            this.txtProbAcumDemanda2.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda2.TabIndex = 19;
+            // 
+            // txtProbAcumDemanda1
+            // 
+            this.txtProbAcumDemanda1.Enabled = false;
+            this.txtProbAcumDemanda1.Location = new System.Drawing.Point(253, 90);
+            this.txtProbAcumDemanda1.Name = "txtProbAcumDemanda1";
+            this.txtProbAcumDemanda1.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda1.TabIndex = 18;
+            // 
+            // txtProbAcumDemanda0
+            // 
+            this.txtProbAcumDemanda0.Enabled = false;
+            this.txtProbAcumDemanda0.Location = new System.Drawing.Point(253, 61);
+            this.txtProbAcumDemanda0.Name = "txtProbAcumDemanda0";
+            this.txtProbAcumDemanda0.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemanda0.TabIndex = 17;
+            // 
+            // txtProbDemanda6
+            // 
+            this.txtProbDemanda6.Location = new System.Drawing.Point(126, 217);
+            this.txtProbDemanda6.Name = "txtProbDemanda6";
+            this.txtProbDemanda6.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda6.TabIndex = 16;
+            this.txtProbDemanda6.Text = "0,05";
+            // 
+            // txtProbDemanda5
+            // 
+            this.txtProbDemanda5.Location = new System.Drawing.Point(126, 191);
+            this.txtProbDemanda5.Name = "txtProbDemanda5";
+            this.txtProbDemanda5.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda5.TabIndex = 15;
+            this.txtProbDemanda5.Text = "0,05";
+            // 
+            // txtProbDemanda4
+            // 
+            this.txtProbDemanda4.Location = new System.Drawing.Point(126, 165);
+            this.txtProbDemanda4.Name = "txtProbDemanda4";
+            this.txtProbDemanda4.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda4.TabIndex = 14;
+            this.txtProbDemanda4.Text = "0,10";
+            // 
+            // txtProbDemanda3
+            // 
+            this.txtProbDemanda3.Location = new System.Drawing.Point(126, 139);
+            this.txtProbDemanda3.Name = "txtProbDemanda3";
+            this.txtProbDemanda3.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda3.TabIndex = 13;
+            this.txtProbDemanda3.Text = "0,15";
+            // 
+            // txtProbDemanda2
+            // 
+            this.txtProbDemanda2.Location = new System.Drawing.Point(126, 113);
+            this.txtProbDemanda2.Name = "txtProbDemanda2";
+            this.txtProbDemanda2.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda2.TabIndex = 12;
+            this.txtProbDemanda2.Text = "0,40";
+            // 
+            // txtProbDemanda1
+            // 
+            this.txtProbDemanda1.Location = new System.Drawing.Point(126, 87);
+            this.txtProbDemanda1.Name = "txtProbDemanda1";
+            this.txtProbDemanda1.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda1.TabIndex = 11;
+            this.txtProbDemanda1.Text = "0,20";
+            // 
+            // txtProbDemanda0
+            // 
+            this.txtProbDemanda0.Location = new System.Drawing.Point(126, 61);
+            this.txtProbDemanda0.Name = "txtProbDemanda0";
+            this.txtProbDemanda0.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemanda0.TabIndex = 10;
+            this.txtProbDemanda0.Text = "0,05";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(59, 213);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(14, 15);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "6";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(59, 187);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(14, 15);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "5";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(59, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(14, 15);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "4";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(59, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(14, 15);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "3";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(59, 109);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(14, 15);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "2";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(59, 86);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(14, 15);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "1";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(59, 64);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(14, 15);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(219, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(142, 15);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Probabilidad Acumulada";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(121, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 15);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Probabilidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(44, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 15);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Dias";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora5);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora4);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora3);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora2);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora1);
+            this.groupBox4.Controls.Add(this.txtProbAcumDemora0);
+            this.groupBox4.Controls.Add(this.txtProbDemora5);
+            this.groupBox4.Controls.Add(this.txtProbDemora4);
+            this.groupBox4.Controls.Add(this.txtProbDemora3);
+            this.groupBox4.Controls.Add(this.txtProbDemora2);
+            this.groupBox4.Controls.Add(this.txtProbDemora1);
+            this.groupBox4.Controls.Add(this.txtProbDemora0);
+            this.groupBox4.Controls.Add(this.label21);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Controls.Add(this.label23);
+            this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Controls.Add(this.label25);
+            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.label28);
+            this.groupBox4.Controls.Add(this.label29);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            this.groupBox4.Location = new System.Drawing.Point(543, 45);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(481, 268);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Demora";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(381, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Aplicar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.OnClickAplicarDemora);
+            // 
+            // txtProbAcumDemora5
+            // 
+            this.txtProbAcumDemora5.Enabled = false;
+            this.txtProbAcumDemora5.Location = new System.Drawing.Point(266, 192);
+            this.txtProbAcumDemora5.Name = "txtProbAcumDemora5";
+            this.txtProbAcumDemora5.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora5.TabIndex = 22;
+            // 
+            // txtProbAcumDemora4
+            // 
+            this.txtProbAcumDemora4.Enabled = false;
+            this.txtProbAcumDemora4.Location = new System.Drawing.Point(266, 166);
+            this.txtProbAcumDemora4.Name = "txtProbAcumDemora4";
+            this.txtProbAcumDemora4.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora4.TabIndex = 21;
+            // 
+            // txtProbAcumDemora3
+            // 
+            this.txtProbAcumDemora3.Enabled = false;
+            this.txtProbAcumDemora3.Location = new System.Drawing.Point(266, 140);
+            this.txtProbAcumDemora3.Name = "txtProbAcumDemora3";
+            this.txtProbAcumDemora3.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora3.TabIndex = 20;
+            // 
+            // txtProbAcumDemora2
+            // 
+            this.txtProbAcumDemora2.Enabled = false;
+            this.txtProbAcumDemora2.Location = new System.Drawing.Point(266, 114);
+            this.txtProbAcumDemora2.Name = "txtProbAcumDemora2";
+            this.txtProbAcumDemora2.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora2.TabIndex = 19;
+            // 
+            // txtProbAcumDemora1
+            // 
+            this.txtProbAcumDemora1.Enabled = false;
+            this.txtProbAcumDemora1.Location = new System.Drawing.Point(266, 88);
+            this.txtProbAcumDemora1.Name = "txtProbAcumDemora1";
+            this.txtProbAcumDemora1.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora1.TabIndex = 18;
+            // 
+            // txtProbAcumDemora0
+            // 
+            this.txtProbAcumDemora0.Enabled = false;
+            this.txtProbAcumDemora0.Location = new System.Drawing.Point(266, 59);
+            this.txtProbAcumDemora0.Name = "txtProbAcumDemora0";
+            this.txtProbAcumDemora0.Size = new System.Drawing.Size(56, 20);
+            this.txtProbAcumDemora0.TabIndex = 17;
+            // 
+            // txtProbDemora5
+            // 
+            this.txtProbDemora5.Location = new System.Drawing.Point(139, 189);
+            this.txtProbDemora5.Name = "txtProbDemora5";
+            this.txtProbDemora5.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora5.TabIndex = 15;
+            this.txtProbDemora5.Text = "0,05";
+            // 
+            // txtProbDemora4
+            // 
+            this.txtProbDemora4.Location = new System.Drawing.Point(139, 163);
+            this.txtProbDemora4.Name = "txtProbDemora4";
+            this.txtProbDemora4.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora4.TabIndex = 14;
+            this.txtProbDemora4.Text = "0,05";
+            // 
+            // txtProbDemora3
+            // 
+            this.txtProbDemora3.Location = new System.Drawing.Point(139, 137);
+            this.txtProbDemora3.Name = "txtProbDemora3";
+            this.txtProbDemora3.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora3.TabIndex = 13;
+            this.txtProbDemora3.Text = "0,30";
+            // 
+            // txtProbDemora2
+            // 
+            this.txtProbDemora2.Location = new System.Drawing.Point(139, 111);
+            this.txtProbDemora2.Name = "txtProbDemora2";
+            this.txtProbDemora2.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora2.TabIndex = 12;
+            this.txtProbDemora2.Text = "0,30";
+            // 
+            // txtProbDemora1
+            // 
+            this.txtProbDemora1.Location = new System.Drawing.Point(139, 85);
+            this.txtProbDemora1.Name = "txtProbDemora1";
+            this.txtProbDemora1.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora1.TabIndex = 11;
+            this.txtProbDemora1.Text = "0,20";
+            // 
+            // txtProbDemora0
+            // 
+            this.txtProbDemora0.Location = new System.Drawing.Point(139, 59);
+            this.txtProbDemora0.Name = "txtProbDemora0";
+            this.txtProbDemora0.Size = new System.Drawing.Size(56, 20);
+            this.txtProbDemora0.TabIndex = 10;
+            this.txtProbDemora0.Text = "0,10";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(59, 187);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(14, 15);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "5";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(59, 161);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(14, 15);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "4";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(59, 135);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(14, 15);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "3";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(59, 109);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(14, 15);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "2";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(59, 86);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(14, 15);
+            this.label25.TabIndex = 4;
+            this.label25.Text = "1";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(59, 64);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(14, 15);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "0";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(223, 33);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(142, 15);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Probabilidad Acumulada";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(121, 33);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(77, 15);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "Probabilidad";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(44, 33);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 15);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Dias";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.costoPromedioXDia);
+            this.groupBox5.Location = new System.Drawing.Point(1040, 255);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(263, 51);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Costo promedio por dia";
+            // 
+            // costoPromedioXDia
+            // 
+            this.costoPromedioXDia.AutoSize = true;
+            this.costoPromedioXDia.Location = new System.Drawing.Point(90, 25);
+            this.costoPromedioXDia.Name = "costoPromedioXDia";
+            this.costoPromedioXDia.Size = new System.Drawing.Size(13, 13);
+            this.costoPromedioXDia.TabIndex = 0;
+            this.costoPromedioXDia.Text = "$";
             // 
             // reloj
             // 
@@ -510,476 +1007,14 @@ namespace TrabajoPracticoSIM
             this.costoAcum.HeaderText = "Costo Acum";
             this.costoAcum.Name = "costoAcum";
             this.costoAcum.ReadOnly = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnAplicarDemanda);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda6);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda5);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda4);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda3);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda2);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda1);
-            this.groupBox3.Controls.Add(this.txtProbAcumDemanda0);
-            this.groupBox3.Controls.Add(this.txtProbDemanda6);
-            this.groupBox3.Controls.Add(this.txtProbDemanda5);
-            this.groupBox3.Controls.Add(this.txtProbDemanda4);
-            this.groupBox3.Controls.Add(this.txtProbDemanda3);
-            this.groupBox3.Controls.Add(this.txtProbDemanda2);
-            this.groupBox3.Controls.Add(this.txtProbDemanda1);
-            this.groupBox3.Controls.Add(this.txtProbDemanda0);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(37, 45);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(481, 268);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Demanda Diaria";
-            // 
-            // btnAplicarDemanda
-            // 
-            this.btnAplicarDemanda.Location = new System.Drawing.Point(392, 216);
-            this.btnAplicarDemanda.Name = "btnAplicarDemanda";
-            this.btnAplicarDemanda.Size = new System.Drawing.Size(75, 23);
-            this.btnAplicarDemanda.TabIndex = 24;
-            this.btnAplicarDemanda.Text = "Aplicar";
-            this.btnAplicarDemanda.UseVisualStyleBackColor = true;
-            this.btnAplicarDemanda.Click += new System.EventHandler(this.OnClickAplicarDemanda);
-            // 
-            // txtProbAcumDemanda6
-            // 
-            this.txtProbAcumDemanda6.Enabled = false;
-            this.txtProbAcumDemanda6.Location = new System.Drawing.Point(251, 213);
-            this.txtProbAcumDemanda6.Name = "txtProbAcumDemanda6";
-            this.txtProbAcumDemanda6.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda6.TabIndex = 23;
-            // 
-            // txtProbAcumDemanda5
-            // 
-            this.txtProbAcumDemanda5.Enabled = false;
-            this.txtProbAcumDemanda5.Location = new System.Drawing.Point(251, 187);
-            this.txtProbAcumDemanda5.Name = "txtProbAcumDemanda5";
-            this.txtProbAcumDemanda5.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda5.TabIndex = 22;
-            // 
-            // txtProbAcumDemanda4
-            // 
-            this.txtProbAcumDemanda4.Enabled = false;
-            this.txtProbAcumDemanda4.Location = new System.Drawing.Point(251, 161);
-            this.txtProbAcumDemanda4.Name = "txtProbAcumDemanda4";
-            this.txtProbAcumDemanda4.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda4.TabIndex = 21;
-            // 
-            // txtProbAcumDemanda3
-            // 
-            this.txtProbAcumDemanda3.Enabled = false;
-            this.txtProbAcumDemanda3.Location = new System.Drawing.Point(251, 135);
-            this.txtProbAcumDemanda3.Name = "txtProbAcumDemanda3";
-            this.txtProbAcumDemanda3.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda3.TabIndex = 20;
-            // 
-            // txtProbAcumDemanda2
-            // 
-            this.txtProbAcumDemanda2.Enabled = false;
-            this.txtProbAcumDemanda2.Location = new System.Drawing.Point(251, 109);
-            this.txtProbAcumDemanda2.Name = "txtProbAcumDemanda2";
-            this.txtProbAcumDemanda2.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda2.TabIndex = 19;
-            // 
-            // txtProbAcumDemanda1
-            // 
-            this.txtProbAcumDemanda1.Enabled = false;
-            this.txtProbAcumDemanda1.Location = new System.Drawing.Point(251, 83);
-            this.txtProbAcumDemanda1.Name = "txtProbAcumDemanda1";
-            this.txtProbAcumDemanda1.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda1.TabIndex = 18;
-            // 
-            // txtProbAcumDemanda0
-            // 
-            this.txtProbAcumDemanda0.Enabled = false;
-            this.txtProbAcumDemanda0.Location = new System.Drawing.Point(251, 54);
-            this.txtProbAcumDemanda0.Name = "txtProbAcumDemanda0";
-            this.txtProbAcumDemanda0.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemanda0.TabIndex = 17;
-            // 
-            // txtProbDemanda6
-            // 
-            this.txtProbDemanda6.Location = new System.Drawing.Point(124, 210);
-            this.txtProbDemanda6.Name = "txtProbDemanda6";
-            this.txtProbDemanda6.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda6.TabIndex = 16;
-            this.txtProbDemanda6.Text = "0,05";
-            // 
-            // txtProbDemanda5
-            // 
-            this.txtProbDemanda5.Location = new System.Drawing.Point(124, 184);
-            this.txtProbDemanda5.Name = "txtProbDemanda5";
-            this.txtProbDemanda5.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda5.TabIndex = 15;
-            this.txtProbDemanda5.Text = "0,05";
-            // 
-            // txtProbDemanda4
-            // 
-            this.txtProbDemanda4.Location = new System.Drawing.Point(124, 158);
-            this.txtProbDemanda4.Name = "txtProbDemanda4";
-            this.txtProbDemanda4.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda4.TabIndex = 14;
-            this.txtProbDemanda4.Text = "0,10";
-            // 
-            // txtProbDemanda3
-            // 
-            this.txtProbDemanda3.Location = new System.Drawing.Point(124, 132);
-            this.txtProbDemanda3.Name = "txtProbDemanda3";
-            this.txtProbDemanda3.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda3.TabIndex = 13;
-            this.txtProbDemanda3.Text = "0,15";
-            // 
-            // txtProbDemanda2
-            // 
-            this.txtProbDemanda2.Location = new System.Drawing.Point(124, 106);
-            this.txtProbDemanda2.Name = "txtProbDemanda2";
-            this.txtProbDemanda2.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda2.TabIndex = 12;
-            this.txtProbDemanda2.Text = "0,40";
-            // 
-            // txtProbDemanda1
-            // 
-            this.txtProbDemanda1.Location = new System.Drawing.Point(124, 80);
-            this.txtProbDemanda1.Name = "txtProbDemanda1";
-            this.txtProbDemanda1.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda1.TabIndex = 11;
-            this.txtProbDemanda1.Text = "0,20";
-            // 
-            // txtProbDemanda0
-            // 
-            this.txtProbDemanda0.Location = new System.Drawing.Point(124, 54);
-            this.txtProbDemanda0.Name = "txtProbDemanda0";
-            this.txtProbDemanda0.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemanda0.TabIndex = 10;
-            this.txtProbDemanda0.Text = "0,05";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(59, 213);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "6";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(59, 187);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(13, 13);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "5";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(59, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "4";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(59, 135);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "3";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(59, 109);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "2";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(59, 86);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "1";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(59, 64);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(13, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(219, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Probabilidad Acumulada";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(121, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Probabilidad";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(44, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Dias";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora5);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora4);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora3);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora2);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora1);
-            this.groupBox4.Controls.Add(this.txtProbAcumDemora0);
-            this.groupBox4.Controls.Add(this.txtProbDemora5);
-            this.groupBox4.Controls.Add(this.txtProbDemora4);
-            this.groupBox4.Controls.Add(this.txtProbDemora3);
-            this.groupBox4.Controls.Add(this.txtProbDemora2);
-            this.groupBox4.Controls.Add(this.txtProbDemora1);
-            this.groupBox4.Controls.Add(this.txtProbDemora0);
-            this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.label23);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(543, 45);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(481, 268);
-            this.groupBox4.TabIndex = 23;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Demora";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(381, 213);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Aplicar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.OnClickAplicarDemora);
-            // 
-            // txtProbAcumDemora5
-            // 
-            this.txtProbAcumDemora5.Enabled = false;
-            this.txtProbAcumDemora5.Location = new System.Drawing.Point(251, 187);
-            this.txtProbAcumDemora5.Name = "txtProbAcumDemora5";
-            this.txtProbAcumDemora5.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora5.TabIndex = 22;
-            // 
-            // txtProbAcumDemora4
-            // 
-            this.txtProbAcumDemora4.Enabled = false;
-            this.txtProbAcumDemora4.Location = new System.Drawing.Point(251, 161);
-            this.txtProbAcumDemora4.Name = "txtProbAcumDemora4";
-            this.txtProbAcumDemora4.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora4.TabIndex = 21;
-            // 
-            // txtProbAcumDemora3
-            // 
-            this.txtProbAcumDemora3.Enabled = false;
-            this.txtProbAcumDemora3.Location = new System.Drawing.Point(251, 135);
-            this.txtProbAcumDemora3.Name = "txtProbAcumDemora3";
-            this.txtProbAcumDemora3.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora3.TabIndex = 20;
-            // 
-            // txtProbAcumDemora2
-            // 
-            this.txtProbAcumDemora2.Enabled = false;
-            this.txtProbAcumDemora2.Location = new System.Drawing.Point(251, 109);
-            this.txtProbAcumDemora2.Name = "txtProbAcumDemora2";
-            this.txtProbAcumDemora2.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora2.TabIndex = 19;
-            // 
-            // txtProbAcumDemora1
-            // 
-            this.txtProbAcumDemora1.Enabled = false;
-            this.txtProbAcumDemora1.Location = new System.Drawing.Point(251, 83);
-            this.txtProbAcumDemora1.Name = "txtProbAcumDemora1";
-            this.txtProbAcumDemora1.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora1.TabIndex = 18;
-            // 
-            // txtProbAcumDemora0
-            // 
-            this.txtProbAcumDemora0.Enabled = false;
-            this.txtProbAcumDemora0.Location = new System.Drawing.Point(251, 54);
-            this.txtProbAcumDemora0.Name = "txtProbAcumDemora0";
-            this.txtProbAcumDemora0.Size = new System.Drawing.Size(56, 20);
-            this.txtProbAcumDemora0.TabIndex = 17;
-            // 
-            // txtProbDemora5
-            // 
-            this.txtProbDemora5.Location = new System.Drawing.Point(124, 184);
-            this.txtProbDemora5.Name = "txtProbDemora5";
-            this.txtProbDemora5.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora5.TabIndex = 15;
-            this.txtProbDemora5.Text = "0,05";
-            // 
-            // txtProbDemora4
-            // 
-            this.txtProbDemora4.Location = new System.Drawing.Point(124, 158);
-            this.txtProbDemora4.Name = "txtProbDemora4";
-            this.txtProbDemora4.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora4.TabIndex = 14;
-            this.txtProbDemora4.Text = "0,05";
-            // 
-            // txtProbDemora3
-            // 
-            this.txtProbDemora3.Location = new System.Drawing.Point(124, 132);
-            this.txtProbDemora3.Name = "txtProbDemora3";
-            this.txtProbDemora3.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora3.TabIndex = 13;
-            this.txtProbDemora3.Text = "0,30";
-            // 
-            // txtProbDemora2
-            // 
-            this.txtProbDemora2.Location = new System.Drawing.Point(124, 106);
-            this.txtProbDemora2.Name = "txtProbDemora2";
-            this.txtProbDemora2.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora2.TabIndex = 12;
-            this.txtProbDemora2.Text = "0,30";
-            // 
-            // txtProbDemora1
-            // 
-            this.txtProbDemora1.Location = new System.Drawing.Point(124, 80);
-            this.txtProbDemora1.Name = "txtProbDemora1";
-            this.txtProbDemora1.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora1.TabIndex = 11;
-            this.txtProbDemora1.Text = "0,20";
-            // 
-            // txtProbDemora0
-            // 
-            this.txtProbDemora0.Location = new System.Drawing.Point(124, 54);
-            this.txtProbDemora0.Name = "txtProbDemora0";
-            this.txtProbDemora0.Size = new System.Drawing.Size(56, 20);
-            this.txtProbDemora0.TabIndex = 10;
-            this.txtProbDemora0.Text = "0,10";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(59, 187);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(13, 13);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "5";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(59, 161);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(13, 13);
-            this.label22.TabIndex = 7;
-            this.label22.Text = "4";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(59, 135);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(13, 13);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "3";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(59, 109);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 13);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "2";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(59, 86);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(13, 13);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "1";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(59, 64);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(13, 13);
-            this.label26.TabIndex = 3;
-            this.label26.Text = "0";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(223, 33);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(121, 13);
-            this.label27.TabIndex = 2;
-            this.label27.Text = "Probabilidad Acumulada";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(121, 33);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(65, 13);
-            this.label28.TabIndex = 1;
-            this.label28.Text = "Probabilidad";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(44, 33);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(28, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Dias";
+            this.costoAcum.Width = 150;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1664, 1011);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gridSimulacion);
@@ -1001,6 +1036,8 @@ namespace TrabajoPracticoSIM
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1083,6 +1120,8 @@ namespace TrabajoPracticoSIM
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.MaskedTextBox txtInventarioInicial;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label costoPromedioXDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndDemanda;
         private System.Windows.Forms.DataGridViewTextBoxColumn demanda;

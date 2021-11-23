@@ -236,6 +236,21 @@ namespace TrabajoPracticoSIM
                 double.TryParse(txtCostoMantenimiento.Text, out double costoAlmacenamiento);
                 double.TryParse(txtCostoFaltante.Text, out double costoFaltante);
 
+                if (diaDesde > diaHasta)
+                {
+                    throw new ArgumentException("El Dia Desde debe ser menor o igual al Dia Hasta.");
+                }
+
+                if (diaHasta > cantidadDiasaGenerar)
+                {
+                    throw new ArgumentException("El Dia Hasta no puede ser mayor a la cantidad de dias a generar.");
+                }
+
+                if (lotePedido < 1)
+                {
+                    throw new ArgumentException("El tamaño del lote de pedido debe ser mayor a cero.");
+                }
+
                 if (diaHasta - diaDesde > 500)
                 {
                     throw new ArgumentException("La diferencia entre el dia desde y hasta debe ser menor igual a 500.");
@@ -295,24 +310,40 @@ namespace TrabajoPracticoSIM
                         }
                         if (checkReposicion.Checked)
                         {
-                            if (actual.stock <= puntoReposicion && actual.llegadaPedido==null)
-                        {
-                            actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
-                            actual.demora = probDemora.GetDemora((decimal)actual.RNDDemora);
-                            actual.orden = true;
-                            actual.llegadaPedido = actual.demora + dia;
-                            actual.disponible = 0;
-                            actual.costoPedido = costoPedido;
-
-                            if (actual.demora == 0)
+                            if (anterior.llegadaPedido == actual.dia - 1 && actual.llegadaPedido == null)
                             {
-                                actual.disponible = lotePedido;
+                                actual.disponible = 0;
+                                actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
                             }
-                        }
+
+                            if (actual.stock <= puntoReposicion && actual.llegadaPedido==null)
+                            {
+                                actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
+                                actual.demora = probDemora.GetDemora((decimal)actual.RNDDemora);
+                                actual.orden = true;
+                                actual.llegadaPedido = actual.demora + dia;
+                                actual.disponible = 0;
+                                actual.costoPedido = costoPedido;
+
+                                if (actual.demora == 0)
+                                {
+                                    actual.disponible = lotePedido;
+                                    actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
+                                }
+                                if (anterior.llegadaPedido == actual.dia)
+                                {
+                                    actual.disponible = lotePedido;
+                                }
+                            }
 
                         }
                         else
                         {
+                            if (anterior.llegadaPedido == actual.dia-1 && actual.llegadaPedido == null)
+                            {
+                                actual.disponible = 0;
+                                actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
+                            }
                             if (dia % 7 == 1)
                             {
                                 actual.RNDDemora = Math.Truncate(random.NextDouble() * 100) / 100;
@@ -325,6 +356,7 @@ namespace TrabajoPracticoSIM
                                 if (actual.demora == 0)
                                 {
                                     actual.disponible = lotePedido;
+                                    actual.stock = (int)(anterior.stock + actual.disponible - actual.demanda);
                                 }
                             }
                         }
@@ -343,19 +375,13 @@ namespace TrabajoPracticoSIM
                         }
 
 
-
                         if ((dia >= diaDesde && dia < diaHasta) || dia == cantidadDiasaGenerar)
                         {
-
                             gridSimulacion.Rows.Add(actual.agregarFila());
-
-
                         }
                         anterior = actual;
                     }
                
-                
-
                 this.gridSimulacion.Rows[this.gridSimulacion.Rows.Count-1].DefaultCellStyle.BackColor = Color.Gold;
 
                 watch.Stop();
@@ -363,6 +389,7 @@ namespace TrabajoPracticoSIM
                     watch.Elapsed.Hours, watch.Elapsed.Minutes, watch.Elapsed.Seconds,
                     watch.Elapsed.Milliseconds / 10);
 
+                costoPromedioXDia.Text = " $" + (actual.costoAcum / cantidadDiasaGenerar).ToString("F2") ;
 
             }
             catch (Exception ex)
