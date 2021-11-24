@@ -27,6 +27,7 @@ namespace TrabajoPracticoSIM
         private void onCheck(object sender, EventArgs e)
         {
             txtPuntoReposicion.Enabled = checkReposicion.Checked;
+            txtPuntoReposicion.Text = null;
 
         }
 
